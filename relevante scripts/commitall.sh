@@ -9,3 +9,5 @@ read message
 git commit -m "${message}"
 git push
 
+# Funktioniert nur auf Unix OSs
+
