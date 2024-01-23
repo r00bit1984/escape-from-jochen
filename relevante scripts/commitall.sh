@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $(pwd) != "/Users/robber/Documents/DHBW/Programmieren/c-projekt" ]; then
+if [ $(pwd) != "/path/to/your/local/repo" ]; then
 echo "Wrong directory man"
 exit 1
 fi
