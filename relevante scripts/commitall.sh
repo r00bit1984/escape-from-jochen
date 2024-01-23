@@ -5,7 +5,7 @@ exit 1
 fi
 git add -A
 echo "What should the commit message be:"
-read a
-git commit -m "${a}"
+read message
+git commit -m "${message}"
 git push
 
