@@ -3,6 +3,9 @@
 #include <string.h>
 
 int main(){
+}
+bool kapitelNullparsexec;
+bool kapitelNullparsexec(){
 int choice;
 printf("Alles ist dunkel. Dein Schädel brummt und du weißt nicht wo du gerade bist.\n");
 printf("Unbekannte Stimme: \"Wach auch.\"\n");
@@ -20,7 +23,7 @@ else if (choice == 2){
     }
 }
 else {
-    ""
+    
 }
 return 0;
 }
