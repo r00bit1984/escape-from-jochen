@@ -2,23 +2,23 @@
 #include <stdio.h>
 #include <string.h>
 
-static char input[100] = "2";
+static char input[100];
 bool getInput();
 bool parseExecute();
 
 int main()
 {
-	printf("Game XY is starting.../n");
+	printf("Game XY is starting...\n");
 	printf("Alles ist dunkel. Dein Schädel brummt und du weißt nicht wo du gerade bist.\n");
 	printf("Unbekannte Stimme: \"Wach auch.\"\n");
-	printf("1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n 2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
+	printf("1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
 	while(parseExecute(input) && getInput());
-	printf("/nBye!/n");
+	printf("\nBye!\n");
 }
 
 bool getInput()
 {
-	printf("/n--> ");
+	printf("\n--> ");
 	return fgets(input, sizeof input, stdin) != NULL;
 }
 
