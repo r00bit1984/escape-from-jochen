@@ -50,6 +50,8 @@
 
       - Jackentasche: Du bist selbst verwundert dass dir trotz deiner Müdigkeit und deines schmerzenden Kopfes der kleine metallische Gegenstand in der Jackentasche aufgefallen ist.
 
+      - Schlüssel: Der Schlüssel ist schon ein wenig angerostet. Er sieht nicht danach aus, als würde er in das Schloss der Tür passen.
+
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
     - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. Du fragst dich wer dieser Mann ist.
