@@ -32,7 +32,7 @@
 
   - `lookaround`: Das Zimmer hat keine Fenster und es ist sehr dunkel. Deine Sicht ist immer noch verschwommen und du musst dich anstrengen mehr als nur Silhoutten von Objekten um dich herum zu erkennen. In dem Zimmer befindet sich ein altes Bett, ein alter Schreibtisch aus Holz, ein Kleiderschrank und ein mit Holzplanken verbarrikadiertes Fenster. An der Wand hängt ein eingerahmtes Bild. Du fragst dich warum du überhaupt hier bist.
 
-  - `inspect`:
+  - `inspect/lookat`:
 
     - **Bett**: Das Bett ist verstaubt, sieht jedoch trotzdem wie frisch gemacht aus. Das Bett erinnert dich an deine Müdigkeit und du würdest dich am liebsten einfach wieder schlafen legen.
 
@@ -42,9 +42,13 @@
 
       - Schublade: Die Schulblade sieht nicht so aus, als wäre sie verschlossen. Vielleicht solltest du mal versuchen zu schauen was sich in ihr befindet?
 
+      - Zettel: Jemand hatte diesen Zettel beschrieben, leider ist der Inhalt jedoch nicht mehr leserlich und du kannst nur einzelne Buchstaben ausmachen:
+
+    - **Schrank**: 
+
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
-    - 
+    - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. 
 
 # Commands
 
