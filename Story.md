@@ -44,11 +44,13 @@
 
       - Zettel: Jemand hatte diesen Zettel beschrieben, leider ist der Inhalt jedoch nicht mehr leserlich und du kannst nur einzelne Buchstaben ausmachen:
 
-    - **Schrank**: 
+    - **Schrank**: Der Kleiderschrank ist aus massivem, dunklem Holz. Vielleicht lässt er sich öffnen?
+
+      - offener Schrank: Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt. Du sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen. Du siehst einen gläzenden Gegenstand in einer der *Jackentaschen.*
 
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
-    - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. 
+    - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. Du fragst dich wer dieser Mann ist.
 
 # Commands
 
