@@ -32,9 +32,11 @@
 
   - `lookaround`: Das Zimmer hat keine Fenster und es ist sehr dunkel. Deine Sicht ist immer noch verschwommen und du musst dich anstrengen mehr als nur Silhoutten von Objekten um dich herum zu erkennen. In dem Zimmer befindet sich ein altes Bett, ein alter Schreibtisch aus Holz, ein Kleiderschrank und ein mit Holzplanken verbarrikadiertes Fenster. An der Wand hängt ein eingerahmtes Bild. Du fragst dich warum du überhaupt hier bist.
 
-  - `goto`:
+  - `inspect`:
 
-    - **Bett**:
+    - **Bett**: Das Bett ist verstaubt, sieht jedoch trotzdem wie frisch gemacht aus. Das Bett erinnert dich an deine Müdigkeit und du würdest dich am liebsten einfach wieder schlafen legen.
+
+    - **Schreibtisch:** Der Schreibtisch sieht uralt aus. Er hat eine Schublade und es liegt ein Kulli und ein Zettel auf der Schreibfläche.
 
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
