@@ -10,3 +10,5 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 &nbsp;
 ## 2. Projektbeschreibung
 
+- Aufgabenstellung: Ein text-basiertes kurzes Videospiel entwickeln.
+
