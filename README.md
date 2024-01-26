@@ -24,5 +24,7 @@ Ein kurzes text-basiertes Videospiel entwickeln. (*Text Adventure Game/Interacti
 	- Es soll ein Handbuch/Guide erstellt werden, um Spielern eine Hilfe zu bieten
 - **Angestrebte Lösung aus technischer Sicht**:
 	- Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
+	- Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
+	- Die `main.c` Datei soll möglichst minimal gehalten werden.
 	- 
 
