@@ -38,6 +38,10 @@
 
     - **Schreibtisch:** Der Schreibtisch sieht uralt aus. Er hat eine Schublade und es liegt ein Kulli und ein Zettel auf der Schreibfläche.
 
+      - Kulli: Der Kulli ist komplett ausgetrocknet und ist nicht mehr zu gebrauchen. Du fragst dich warum alles so verwahrlost und verlassen wirkt.
+
+      - Schublade: Die Schulblade sieht nicht so aus, als wäre sie verschlossen. Vielleicht solltest du mal versuchen zu schauen was sich in ihr befindet?
+
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
     - 
