@@ -10,6 +10,13 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 &nbsp;
 ## 2. Projektbeschreibung
 
-- **Aufgabenstellung**: Ein text-basiertes kurzes Videospiel entwickeln. (*Text Adventure Game/Interactive Fiction*)
+- **Aufgabenstellung**: Ein kurzes text-basiertes Videospiel entwickeln. (*Text Adventure Game/Interactive Fiction*)
 - **Funktionsumfang**:
 	- Der Spieler kann verschiedene Dialogoptionen wählen
+	- Das Spiel ist in Kapitel unterteilt
+	- Der Spieler kann verschiedene Aktionen ausführen, wie zum Beispiel `lookat`, `lookaround`, `pickup` etc.
+	- Kleinere Rätsel um von Raum zu Raum vorwärtszukommen
+	- Player-Stats: `health`, `strength`etc.
+	- (Steht noch nicht fest) Kampfsequenzen
+	- Größtenteils lineares Spiel, jedoch alternative Enden
+	- 
