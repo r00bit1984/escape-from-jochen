@@ -56,6 +56,14 @@
 
     - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. Du fragst dich wer dieser Mann ist.
 
+  - `pickup`:
+
+    - Schlüssel
+
+    - Zettel
+
+    - Kulli
+
 # Commands
 
 - lookAround = kurzer Text der die Umgebung beschreibt
