@@ -40,13 +40,15 @@
 
       - Kulli: Der Kulli ist komplett ausgetrocknet und ist nicht mehr zu gebrauchen. Du fragst dich warum alles so verwahrlost und verlassen wirkt.
 
-      - Schublade: Die Schulblade sieht nicht so aus, als wäre sie verschlossen. Vielleicht solltest du mal versuchen zu schauen was sich in ihr befindet?
+      - Schublade: Die Schulblade beeinhaltet bestimmt etwas was dich weiterbringt. Vielleicht solltest du mal versuchen sie zu öffnen?
 
       - Zettel: Jemand hatte diesen Zettel beschrieben, leider ist der Inhalt jedoch nicht mehr leserlich und du kannst nur einzelne Buchstaben ausmachen:
 
     - **Schrank**: Der Kleiderschrank ist aus massivem, dunklem Holz. Vielleicht lässt er sich öffnen?
 
       - offener Schrank: Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt. Du sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen. Du siehst einen gläzenden Gegenstand in einer der *Jackentaschen.*
+
+      - Jackentasche: Du bist selbst verwundert dass dir trotz deiner Müdigkeit und deines schmerzenden Kopfes der kleine metallische Gegenstand in der Jackentasche aufgefallen ist.
 
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
 
