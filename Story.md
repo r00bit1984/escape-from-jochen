@@ -26,28 +26,7 @@
 - lookAround = kurzer Text der die Umgebung beschreibt
 - pickUp(Item) = Hebe ausgewähltes Item auf
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a name="h.fml242zg2tcj"></a>Umsetzung
+## Umsetzung
 
 - **lookaround** command: Gibt eine detaillierte Beschreibung der aktuellen Umgebung/des aktuellen Raums. *Sachen, mit denen interagiert werden kann, sind farblich hervorgehoben*.
 - **goto** command: es gibt fixe Orte an die man sich in einem Zimmer bewegen kann
