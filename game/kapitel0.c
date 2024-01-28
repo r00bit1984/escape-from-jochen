@@ -43,6 +43,7 @@ bool parseExecute(char *input, char *conLevelInit)
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "0") == 1)
 		{
 			printf("Du merkst wie dich die Müdigkeit wieder zurück in die Dunkelheit zieht.\nDu willst nichts mehr als einfach nur zu schlafen\n");
+			printf("1. Gib auf und lass dich von der Dunkelheit konsumieren\n2. Greife den letzten Strang der dich noch zurück zur Realität bringen kann.\n");
 			conLevel = "1b";
 		}
 		//Erste Gesprächsebene A

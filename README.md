@@ -28,7 +28,9 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
   - Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
   - Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
   - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in eine Funktion "`parseExecute`" ausgelagert werden
+  - Es soll mit Konversationsebenen gearbeitet werden, sodass sich verschiedene Entscheidungen des Spielers auf den Fluss der Unterhaltung/den Verlauf des Spiel auswirken
   - Die `main.c` Datei soll möglichst minimal gehalten werden
+  - Es sollen 3-4 Kapitel programmiert werden
   - Das Spiel soll auf Windows und Unix-Systemen ausführbar sein
 
 
