@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
 bool getInput();
 bool parseExecute();
@@ -60,7 +61,8 @@ bool parseExecute(char *input, char *conLevelInit)
 		//Erste Gesprächsebene B
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1b") == 0)
 		{
-			printf("platzhalter 1b1");
+			printf("Du merkst wie du weiter in die Dunkelheit gleitest und dein metaphorischer Körper von einem dunklen Nebel eingehüllt wird. Du bist jetzt Teil der Dunkelheit und es gibt keine Chance mehr, dass du je wieder zurück zur Realität gelangst.\n GAME OVER\n");
+			exit(0);
 			conLevel = "2c";
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "1b") == 0)
