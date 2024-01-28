@@ -37,7 +37,7 @@ bool parseExecute(char *input, char *conLevelInit)
 		//Oberste Gesprächsebene, && strcmp(conLevel, "0") == 0
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "0") == 1)
 		{
-			printf("Du hörst nun keine Stimme mehr. Du fühlst dich wie im Halfschlaf. Warum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
+			printf("Du hörst nun keine Stimme mehr. Du fühlst dich wie im Halbschlaf. Warum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
 			conLevel = "1a";
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "0") == 1)

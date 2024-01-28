@@ -27,7 +27,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 - **Angestrebte Lösung aus technischer Sicht**:
   - Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
   - Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
-  - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in eine Funktion "`parseandexecute`" ausgelagert werden
+  - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in eine Funktion "`parseExecute`" ausgelagert werden
   - Die `main.c` Datei soll möglichst minimal gehalten werden
   - Das Spiel soll auf Windows und Unix-Systemen ausführbar sein
 
