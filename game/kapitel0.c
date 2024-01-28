@@ -3,17 +3,24 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define BRED "\e[1;31m"
+#define BLU "\e[0;34m"
+#define RESET "\033[0m"
+
 bool getInput();
-bool parseExecute();
+bool parseExecute(char *input, char *conLevelInit);
 
 static char input[100];
-static char conLevelInit[5];
+static char conLevelInit[5] = "0";
 
 int main(){
 	printf("Game XY is starting...\n");
-	printf("Alles ist dunkel. Dein Schädel brummt und du weißt nicht wo du gerade bist.\n");
-	printf("Unbekannte Stimme: \"Wach auch.\"\n");
-	printf("1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
+	printf("\nAlles ist dunkel. Dein Schädel brummt und du weißt nicht wo du gerade bist.\n");
+	printf("\nUnbekannte Stimme: ");
+	printf(BRED);	
+	printf("Wach auf.\n");
+	printf(RESET);
+	printf("\n1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
 	while(parseExecute(input, conLevelInit) && getInput());
 	printf("\nBye!\n");
 }
@@ -36,39 +43,47 @@ bool parseExecute(char *input, char *conLevelInit)
 			return false;
 		}
 		//Oberste Gesprächsebene, && strcmp(conLevel, "0") == 0
-		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "0") == 1)
+		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "0") == 0)
 		{
-			printf("Du hörst nun keine Stimme mehr. Du fühlst dich wie im Halbschlaf. Warum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
-			conLevel = "1a";
+			printf("\nDu hörst nun keine Stimme mehr. Du fühlst dich wie im Halbschlaf.\nWarum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
+			printf("1. Versuche dich daran zu erinnern, wer du bist\n2. Versuche etwas in der Dunkelheit um dich herum zu erblicken\n");
+			strcpy(conLevel, "1a");
 		}
-		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "0") == 1)
+		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "0") == 0)
 		{
-			printf("Du merkst wie dich die Müdigkeit wieder zurück in die Dunkelheit zieht.\nDu willst nichts mehr als einfach nur zu schlafen\n");
-			printf("1. Gib auf und lass dich von der Dunkelheit konsumieren\n2. Greife den letzten Strang der dich noch zurück zur Realität bringen kann.\n");
-			conLevel = "1b";
+			printf("Du merkst wie dich die Müdigkeit wieder zurück in die Dunkelheit zieht.\nDu willst nichts mehr als einfach nur zu schlafen.\n");
+			printf("\n1. Gib auf und lass dich von der Dunkelheit konsumieren\n2. Greife den letzten Strang der dich noch zurück zur Realität bringen kann.\n");
+			strcpy(conLevel, "1b");
 		}
 		//Erste Gesprächsebene A
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1a") == 0)
 		{
-			printf("platzhalter 1a1");
-			conLevel = "2a";
+			printf("Du merkst, wie dir jegliche Erinnerung fehlt.\nDu kannst dich nicht einmal an deinen eigenen Namen erinnern.\n1. Versuche etwas in der Dunkelheit um dich herum zu erblicken\n");
+			strcpy(conLevel, "1a");
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "1a") == 0)
 		{
-			printf("platzhalter 1a2");
-			conLevel = "2b";
+			printf("Du konzentriest dich auf deine innere Umgebung und kannst auf einmal ein schwaches Leuchten ausmachen.\nEs bringt dich wieder ein Stück näher an die Realität.\n");
+			printf(BLU);
+			printf("\nDrücke ENTER um fortzufahren.\n");
+			printf(RESET);
+			strcpy(conLevel, "2b");
 		}
 		//Erste Gesprächsebene B
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1b") == 0)
 		{
-			printf("Du merkst wie du weiter in die Dunkelheit gleitest und dein metaphorischer Körper von einem dunklen Nebel eingehüllt wird. Du bist jetzt Teil der Dunkelheit und es gibt keine Chance mehr, dass du je wieder zurück zur Realität gelangst.\n GAME OVER\n");
+			printf("Du merkst wie du weiter in die Dunkelheit gleitest und dein metaphorischer Körper von einem dunklen Nebel eingehüllt wird.\n Du bist jetzt Teil der Dunkelheit und es gibt keine Chance mehr, dass du je wieder zurück zur Realität gelangst.\n GAME OVER\n");
 			exit(0);
-			conLevel = "2c";
+			strcpy(conLevel, "2c");
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "1b") == 0)
 		{
 			printf("platzhalter 1b2");
-			conLevel = "2d";
+			strcpy(conLevel, "2d");
+		}
+		else if (strcmp(choice, "\n") == 0 && strcmp(conLevel, "2b") == 0)
+		{
+			printf("platzhalter finaler Dialog Kapitel 0");
 		}
 	}
 	return true;
