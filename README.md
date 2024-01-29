@@ -1,5 +1,5 @@
 # Programmierprojekt 23F, 1. Semester
-![](https://github.com/r00bit1984/c-projekt/blob/main/demo/demo.gif)
+[comment]: <> (![](https://github.com/r00bit1984/c-projekt/blob/main/demo/demo.gif))
 ## 1. Projektteilnehmer/innen
 
 - Wiedemann, Tobias
