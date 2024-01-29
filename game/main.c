@@ -10,9 +10,6 @@
 #define BLU "\e[0;34m"
 #define RESET "\033[0m"
 
-static char input[100];
-static char conLevelInit[5] = "0";
-
 int main()
 {
 	main0();
