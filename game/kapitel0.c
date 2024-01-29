@@ -9,23 +9,23 @@
 #define BLU "\e[0;34m"
 #define RESET "\033[0m"
 
-
 bool getInput0();
 bool parseExecute0(char *input, char *conLevelInit);
 
 static char input[100];
 static char conLevelInit[5] = "0";
 
-
-int main0(){
-	printf("Game XY is starting...\n");
+int main0()
+{
+	printf("Wilkommen zu Escape from Jochen!\n");
 	printf("\nAlles ist dunkel. Dein Schädel brummt und du weißt nicht wo du gerade bist.\n");
 	printf("\nUnbekannte Stimme: ");
-	printf(BRED);	
+	printf(BRED);
 	printf("Wach auf.\n");
 	printf(RESET);
 	printf("\n1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
-	while(parseExecute0(input, conLevelInit) && getInput0());
+	while (parseExecute0(input, conLevelInit) && getInput0())
+		;
 	return 0;
 }
 
@@ -39,15 +39,15 @@ bool parseExecute0(char *input, char *conLevelInit)
 {
 	char *choice = strtok(input, " \n");
 	char *conLevel = strtok(conLevelInit, " \n");
-	//char *conLevel;
-	if(choice != NULL)
+	// char *conLevel;
+	if (choice != NULL)
 	{
-		if(strcmp(choice, "quit") == 0)
+		if (strcmp(choice, "quit") == 0)
 		{
 			printf("Shutting down...");
 			exit(1);
 		}
-		//Oberste Gesprächsebene, && strcmp(conLevel, "0") == 0
+		// Oberste Gesprächsebene, && strcmp(conLevel, "0") == 0
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "0") == 0)
 		{
 			printf("\nDu hörst nun keine Stimme mehr. Du fühlst dich wie im Halbschlaf.\nWarum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
@@ -60,7 +60,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 			printf("\n1. Gib auf und lass dich von der Dunkelheit konsumieren.\n2. Greife den letzten Strang der dich noch zurück zur Realität bringen kann.\n");
 			strcpy(conLevel, "1b");
 		}
-		//Erste Gesprächsebene A
+		// Erste Gesprächsebene A
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1a") == 0)
 		{
 			printf("\nDu merkst, wie dir jegliche Erinnerung fehlt.\nDu kannst dich nicht einmal an deinen eigenen Namen erinnern.\n\n1. Versuche etwas in der Dunkelheit um dich herum zu erblicken.\n");
@@ -74,7 +74,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 			printf(RESET);
 			strcpy(conLevel, "2b");
 		}
-		//Erste Gesprächsebene B
+		// Erste Gesprächsebene B
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1b") == 0)
 		{
 			printf("\nDu merkst wie du weiter in die Dunkelheit gleitest und dein metaphorischer Körper von einem dunklen Nebel eingehüllt wird.\nDu bist jetzt Teil der Dunkelheit und es gibt keine Chance mehr, dass du je wieder zurück zur Realität gelangst.\n");
