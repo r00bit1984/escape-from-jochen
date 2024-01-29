@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -8,11 +9,13 @@
 #define BLU "\e[0;34m"
 #define RESET "\033[0m"
 
+
 bool getInput();
 bool parseExecute(char *input, char *conLevelInit);
 
 static char input[100];
 static char conLevelInit[5] = "0";
+
 
 int main(){
 	printf("Game XY is starting...\n");
