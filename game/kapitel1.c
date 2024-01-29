@@ -16,5 +16,9 @@ static char progressionInit[5] = "0";
 
 int main1()
 {
-	
+	printf("\nDeine Muskel fühlen sich schwach an, aber du stehst nun.\nDu scheinst dich in einem alten Schlafzimmer zu befinden.\n");
+    printf(BLU);
+    printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use");
+    printf(RESET);
+    return 0;
 }

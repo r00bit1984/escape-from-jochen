@@ -26,7 +26,6 @@ int main0(){
 	printf(RESET);
 	printf("\n1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
 	while(parseExecute0(input, conLevelInit) && getInput0());
-	printf("\nBye!\n");
 	return 0;
 }
 
@@ -45,13 +44,14 @@ bool parseExecute0(char *input, char *conLevelInit)
 	{
 		if(strcmp(choice, "quit") == 0)
 		{
-			return false;
+			printf("Shutting down...");
+			exit(1);
 		}
 		//Oberste Gesprächsebene, && strcmp(conLevel, "0") == 0
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "0") == 0)
 		{
 			printf("\nDu hörst nun keine Stimme mehr. Du fühlst dich wie im Halbschlaf.\nWarum spricht jemand mit dir? Wahrscheinlich ist es einfach deine Vorstellung...\n");
-			printf("1. Versuche dich daran zu erinnern, wer du bist\n2. Versuche etwas in der Dunkelheit um dich herum zu erblicken\n");
+			printf("\n1. Versuche dich daran zu erinnern, wer du bist\n2. Versuche etwas in der Dunkelheit um dich herum zu erblicken\n");
 			strcpy(conLevel, "1a");
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "0") == 0)
@@ -63,7 +63,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 		//Erste Gesprächsebene A
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "1a") == 0)
 		{
-			printf("Du merkst, wie dir jegliche Erinnerung fehlt.\nDu kannst dich nicht einmal an deinen eigenen Namen erinnern.\n1. Versuche etwas in der Dunkelheit um dich herum zu erblicken.\n");
+			printf("\nDu merkst, wie dir jegliche Erinnerung fehlt.\nDu kannst dich nicht einmal an deinen eigenen Namen erinnern.\n\n1. Versuche etwas in der Dunkelheit um dich herum zu erblicken.\n");
 			strcpy(conLevel, "2b");
 		}
 		else if (strcmp(choice, "2") == 0 && strcmp(conLevel, "1a") == 0)
@@ -91,7 +91,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 		}
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "2b") == 0)
 		{
-			printf("\nDas Leuchten wird ein wenig stärker und du fängst an, deinen Körper wieder ein wenig spüren zu können.\nDeine Augenlieder öffnen sich allmählich und deine Sinne werden mit Licht überflutet.\nNach ein paar Momenten merkst du, dass es gar nicht so hell ist.\nDu befindest dich in einem Zimmer und jetzt wo sich deine Augen an das Licht gewöhnt haben merkst du, dass es hier ganz schön dunkel ist.\n1. Richte dich auf.");
+			printf("\nDas Leuchten wird ein wenig stärker und du fängst an, deinen Körper wieder ein wenig spüren zu können.\nDeine Augenlieder öffnen sich allmählich und deine Sinne werden mit Licht überflutet.\nNach ein paar Momenten merkst du, dass es gar nicht so hell ist.\nDu befindest dich in einem Zimmer und jetzt wo sich deine Augen an das Licht gewöhnt haben merkst du, dass es hier ganz schön dunkel ist.\n\n1. Richte dich auf.\n");
 			strcpy(conLevel, "3");
 		}
 		else if (strcmp(choice, "help") == 0)
@@ -102,7 +102,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 		}
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "3") == 0)
 		{
-			exit(0);
+			return 0;
 		}
 		else
 		{
