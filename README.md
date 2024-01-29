@@ -26,6 +26,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 - **Angestrebte Lösung aus technischer Sicht**:
   - Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
   - Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
+    - So soll es eine Datei `kapitel0.c`, `kapitel1.c` etc. geben 
   - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in eine Funktion "`parseExecute`" ausgelagert werden
   - Es soll mit Konversationsebenen gearbeitet werden, sodass sich verschiedene Entscheidungen des Spielers auf den Fluss der Unterhaltung/den Verlauf des Spiel auswirken
   - Verschiedene Farben sollen zum Einsatz kommen, z.B. farbliche Kenntmachung von Objekten mit denen interagiert werden kann
