@@ -19,7 +19,6 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
   - Das Spiel ist in Kapitel unterteilt
   - Der Spieler kann verschiedene Aktionen ausführen, wie zum Beispiel `lookat`, `lookaround`, `pickup` etc.
   - Kleinere Rätsel um von Raum zu Raum vorwärtszukommen
-  - (Steht noch nicht fest) Kampfsequenzen
   - Größtenteils lineares Spiel, jedoch alternative Enden
   - Entscheidungen des Spielers sollen Konsequenzen haben
   - Es soll ein Handbuch/Guide erstellt werden, um Spielern eine Hilfe zu bieten
