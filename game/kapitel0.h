@@ -2,7 +2,7 @@
 #define KAPITEL0_H
 
 int main0();
-bool getInput();
-bool parseExecute(char *input, char *conLevelInit);
+bool getInput0();
+bool parseExecute0(char *input, char *conLevelInit);
 
 #endif

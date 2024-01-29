@@ -10,8 +10,8 @@
 #define RESET "\033[0m"
 
 
-bool getInput();
-bool parseExecute(char *input, char *conLevelInit);
+bool getInput0();
+bool parseExecute0(char *input, char *conLevelInit);
 
 static char input[100];
 static char conLevelInit[5] = "0";
@@ -25,18 +25,18 @@ int main0(){
 	printf("Wach auf.\n");
 	printf(RESET);
 	printf("\n1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
-	while(parseExecute(input, conLevelInit) && getInput());
+	while(parseExecute0(input, conLevelInit) && getInput0());
 	printf("\nBye!\n");
 	return 0;
 }
 
-bool getInput()
+bool getInput0()
 {
 	printf("\n--> ");
 	return fgets(input, sizeof input, stdin) != NULL;
 }
 
-bool parseExecute(char *input, char *conLevelInit)
+bool parseExecute0(char *input, char *conLevelInit)
 {
 	char *choice = strtok(input, " \n");
 	char *conLevel = strtok(conLevelInit, " \n");
@@ -91,7 +91,7 @@ bool parseExecute(char *input, char *conLevelInit)
 		}
 		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "2b") == 0)
 		{
-			printf("\nDas Leuchten wir ein wenig stärker und du fängst an, deinen Körper wieder ein wenig spüren zu können.\nDeine Augenlieder öffnen sich allmählich und deine Sinne werden mit Licht überflutet.\nNach ein paar Momenten merkst du, dass es gar nicht so hell ist.\nDu befindest dich in einem Zimmer und jetzt wo sich deine Augen an das Licht gewöhnt haben merkst du, dass es hier ganz schön dunkel ist.\n1. Richte dich auf.");
+			printf("\nDas Leuchten wird ein wenig stärker und du fängst an, deinen Körper wieder ein wenig spüren zu können.\nDeine Augenlieder öffnen sich allmählich und deine Sinne werden mit Licht überflutet.\nNach ein paar Momenten merkst du, dass es gar nicht so hell ist.\nDu befindest dich in einem Zimmer und jetzt wo sich deine Augen an das Licht gewöhnt haben merkst du, dass es hier ganz schön dunkel ist.\n1. Richte dich auf.");
 			strcpy(conLevel, "3");
 		}
 		else if (strcmp(choice, "help") == 0)
