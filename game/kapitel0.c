@@ -24,8 +24,7 @@ int main0()
 	printf("Wach auf.\n");
 	printf(RESET);
 	printf("\n1. Versuche dich auf die mysteriöse Stimme zu konzentrieren\n2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit\n");
-	while (parseExecute0(input, conLevelInit) && getInput0())
-		;
+	while (parseExecute0(input, conLevelInit) && getInput0());
 	return 0;
 }
 
