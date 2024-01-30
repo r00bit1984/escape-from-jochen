@@ -133,6 +133,17 @@ bool parseExecute1(char *input, char *progressionInit)
             strcpy(progression, "fenster");
         }
 
+        // Kleiderschrank
+        else if (strcmp(choice, "open.Kleiderschrank") == 0 && strcmp(progression, "schrank") == 0)
+        {
+            printf("Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der *Jackentaschen.");
+            strcpy(progression, "schrankoffen");
+        }
+        else if (strcmp(choice, "inspect.Jackentasche") == 0 && strcmp(progression, "schrankoffen") == 0)
+        {
+            printf("Du bist selbst verwundert dass dir trotz deiner Müdigkeit\nund deines schmerzenden Kopfes der kleine metallische\nGegenstand in der Jackentasche aufgefallen ist.");
+        }
+
     }
 return true;
 }
