@@ -11,7 +11,7 @@
 bool getInput1();
 bool parseExecute1(char *input, char *progressionInit);
 
-static char input[20];
+static char input[100];
 static char progressionInit[20] = "0";
 
 int main1()
@@ -136,7 +136,10 @@ bool parseExecute1(char *input, char *progressionInit)
         // Kleiderschrank
         else if (strcmp(choice, "open.Kleiderschrank") == 0 && strcmp(progression, "schrank") == 0)
         {
-            printf("Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der *Jackentaschen.");
+            printf("Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der ");
+            printf(BLU);
+            printf("Jackentaschen.");
+            printf(RESET);
             strcpy(progression, "schrankoffen");
         }
         else if (strcmp(choice, "inspect.Jackentasche") == 0 && strcmp(progression, "schrankoffen") == 0)
