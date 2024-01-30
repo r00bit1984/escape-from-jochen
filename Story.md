@@ -19,9 +19,11 @@
 ## Kapitel 1/Tutorial
 
 - Charakter wacht im Haupt-Schlafzimmer auf Boden auf. Erkunden und entkommen aus dem Schlafzimmer ist die Aufgabe von Kapitel 1.
-- Bestimmtes Item um zum nächsten zimmer  zu gelangen
-- Schlafzimmer:
 
+- Bestimmtes Item um zum nächsten zimmer  zu gelangen
+
+- Schlafzimmer:
+  
   - `lookaround`: Das Zimmer hat keine Fenster und es ist sehr dunkel. Deine Sicht ist immer noch verschwommen und du musst dich anstrengen mehr als nur Silhoutten von Objekten um dich herum zu erkennen. In dem Zimmer befindet sich ein altes Bett, ein alter Schreibtisch aus Holz, ein Kleiderschrank und ein mit Holzplanken verbarrikadiertes Fenster. An der Wand hängt ein eingerahmtes Bild. Du fragst dich warum du überhaupt hier bist.
   - `inspect/lookat`:
     - **Bett**: Das Bett ist verstaubt, sieht jedoch trotzdem wie frisch gemacht aus. Das Bett erinnert dich an deine Müdigkeit und du würdest dich am liebsten einfach wieder schlafen legen.
@@ -30,10 +32,8 @@
       - Schublade: Die Schulblade beeinhaltet bestimmt etwas was dich weiterbringt. Vielleicht solltest du mal versuchen sie zu öffnen?
       - Zettel: Jemand hatte diesen Zettel beschrieben, leider ist der Inhalt jedoch nicht mehr leserlich und du kannst nur einzelne Buchstaben ausmachen:
       - Offene Schublade (lässt sich mit Schlüssel aus Schrank öffnen): In der Schublade liegt ein {Platzhalter} und ein rostiges Brecheisen. Du fragst dich was solche Gegenstände in einer Schreibtischschublade zu suchen haben.
-	      - Brecheisen: Das Brecheisen sieht so aus als würde es jeden Moment zusammenbrechen. Es muss schon sehr lange hier gelegen haben. Vielleicht ist es ja noch zu etwas zu gebrauchen.
-	      - {Platzhalter}: ...
-          
-          
+        - Brecheisen: Das Brecheisen sieht so aus als würde es jeden Moment zusammenbrechen. Es muss schon sehr lange hier gelegen haben. Vielleicht ist es ja noch zu etwas zu gebrauchen.
+        - {Platzhalter}: ...
 
     - **Schrank**: Der Kleiderschrank ist aus massivem, dunklem Holz. Vielleicht lässt er sich öffnen?
       - offener Schrank: Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt. Du sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen. Du siehst einen gläzenden Gegenstand in einer der *Jackentaschen.*
@@ -41,19 +41,24 @@
       - Schlüssel: Der Schlüssel ist schon ein wenig angerostet. Er sieht nicht danach aus, als würde er in das Schloss der Tür passen.
     - **Fenster**: Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen. Du zweifelst daran die Holzplanken entfernen zu können.
     - **Bild**: Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab. Der Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung. Du fragst dich wer dieser Mann ist.
-  - `pickup`:
-    - Schlüssel
-    - Zettel
-    - Kulli
+
+- `pickup`:
+  - Schlüssel
+  - Zettel
+  - Kulli
 
 ## Kapitel 2
+
 - Der Spieler ist nun aus dem ersten Raum (Schlafzimmer) ausgebrochen. Nun steht er in dem nächsten Zimmer, ein Wohnzimmer. 
+
 - Commands:
+
 - `lookaround`: Um dich herum ist es wie im vorherigen Zimmer wieder sehr dunkel. Du merkst wie du durch die ganze Arbeit ganz vergessen hast wie komisch die Situation ist, in der du dich befindest. Solltest du gestresst sein, bist du in Gefahr? Wer bist du eigentlich? Du realisierst, dass du dich nicht einmal an deinen eigenen Namen erinnerst.
 
 - `inspect`:
-    - Sofa: Das Sofa sieht, wie alles andere in diesem Haus(?), so aus, als wäre es noch nie benutzt worden. 
-    - 
+  
+  - Sofa: Das Sofa sieht, wie alles andere in diesem Haus(?), so aus, als wäre es noch nie benutzt worden. 
+  - 
 
 # Commands
 

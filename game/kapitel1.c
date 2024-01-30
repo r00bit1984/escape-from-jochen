@@ -71,9 +71,26 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Bild. ");
             printf(RESET);
             printf("Du fragst dich warum du überhaupt hier bist.");
-            
-                
-        
+        }
+        else if (strcmp(choice, "inspect Bett") == 0)
+        {
+            printf("Das Bett ist verstaubt, sieht jedoch trotzdem wie frisch gemacht aus.\nDas Bett erinnert dich an deine Müdigkeit und du würdest dich am liebsten einfach wieder schlafen legen.\n");
+        }
+        else if (strcmp(choice, "inspect Schreibtisch") == 0)
+        {
+            printf("Der Schreibtisch sieht uralt aus.\nEr hat eine "); 
+            printf(BLU);
+            printf("Schublade");
+            printf(RESET);
+            printf(" und es liegt ein ");
+            printf(BLU);
+            printf("Kulli");
+            printf(RESET);
+            printf(" und ein ");
+            printf(BLU);
+            printf("Zettel ");
+            printf(RESET);
+            printf("auf der Schreibfläche.");
         }
         
     }
