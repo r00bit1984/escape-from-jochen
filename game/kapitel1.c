@@ -13,6 +13,11 @@ bool parseExecute1(char *input, char *progressionInit);
 
 static char input[100];
 static char progressionInit[20] = "0";
+typedef struct {
+    char name[50]; 
+} Item;
+Item inventory[10];
+int itemCount = 0;
 
 int main1()
 {
@@ -35,6 +40,13 @@ bool getInput1()
     printf("\n--> ");
     return fgets(input, sizeof input, stdin) != NULL;
 }
+
+void addItem(Item item) {
+
+    inventory[itemCount++] = item;
+
+}
+
 
 bool parseExecute1(char *input, char *progressionInit)
 {
@@ -105,6 +117,13 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Das Bild hat einen vergoldeten Rahmen und bildet ein Portät eines Mannes ab.\nDer Mann hat eine aufrechte Position und hat eine stolze Ausstrahlung.\nDu fragst dich wer dieser Mann ist.");
         }
+        else if (strcmp(choice, "inspect.Tür") == 0)
+        {
+            printf("Die Tür sieht ganz schön stabil aus.\nDu wirst sie wohl nicht so einfach öffnen können.\nGlücklicherweise hat sie wenigstens ein ");
+            printf(BLU);
+            printf("Schloss.");
+            printf(RESET);
+        }
         
         // GOTO
         else if (strcmp(choice, "goto.Bett") == 0)
@@ -134,9 +153,13 @@ bool parseExecute1(char *input, char *progressionInit)
         }
 
         // Kleiderschrank
+        else if (strcmp(choice, "open.Kleiderschrank") == 0 && strcmp(progression, "0") == 0)
+        {
+            printf("Du kannst den Kleiderschrank nicht öffnen, da du nicht nah genug bist.\nVersuche doch mal den command `goto.Kleiderschrank`.");
+        }
         else if (strcmp(choice, "open.Kleiderschrank") == 0 && strcmp(progression, "schrank") == 0)
         {
-            printf("Du öffnest die schweren Türen des Schranks und wirst erst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der ");
+            printf("Du öffnest die schweren Türen des Schranks und wirst\nerst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der ");
             printf(BLU);
             printf("Jackentaschen.");
             printf(RESET);
@@ -144,8 +167,34 @@ bool parseExecute1(char *input, char *progressionInit)
         }
         else if (strcmp(choice, "inspect.Jackentasche") == 0 && strcmp(progression, "schrankoffen") == 0)
         {
-            printf("Du bist selbst verwundert dass dir trotz deiner Müdigkeit\nund deines schmerzenden Kopfes der kleine metallische\nGegenstand in der Jackentasche aufgefallen ist.");
+            printf("Du bist selbst verwundert dass dir trotz deiner Müdigkeit\nund deines schmerzenden Kopfes der kleine metallische\nGegenstand in der Jackentasche aufgefallen ist. Vielleicht ein ");
+            printf(BLU);
+            printf("Schlüssel?");
+            printf(RESET);
         }
+        else if (strcmp(choice, "inspect.Schlüssel") == 0 && strcmp(progression, "schrankoffen") == 0)
+        {
+            printf("Der Schlüssel ist schon ein wenig angerostet. Er sieht nicht danach aus, als würde er in das Schloss der ");
+            printf(BLU);
+            printf("Tür ");
+            printf(RESET);
+            printf("passen.");
+        }
+        else if (strcmp(choice, "pickup.Schlüssel") == 0 && strcmp(progression, "schrankoffen") == 0)
+        {
+
+        }
+
+        // Tür
+        else if (strcmp(choice, "inspect.Schloss") == 0 && strcmp(progression, "tür") == 0)
+        {
+            printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
+        }
+        else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0)
+        {
+            printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
+        }
+
 
     }
 return true;
