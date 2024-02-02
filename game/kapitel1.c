@@ -7,6 +7,7 @@
 #define URED "\e[4;31m"
 #define BLU "\e[0;34m"
 #define RESET "\033[0m"
+#define GRN "\e[0;32m"
 
 bool getInput1();
 bool parseExecute1(char *input, char *progressionInit);
@@ -18,6 +19,7 @@ typedef struct {
 } Item;
 Item inventory[10];
 int itemCount = 0;
+int fensterOpen = 0;
 
 int main1()
 {
@@ -41,13 +43,6 @@ bool getInput1()
     return fgets(input, sizeof input, stdin) != NULL;
 }
 
-void addItem(Item item) {
-
-    inventory[itemCount++] = item;
-
-}
-
-
 bool parseExecute1(char *input, char *progressionInit)
 {
     char *choice = strtok(input, " \n");
@@ -63,7 +58,10 @@ bool parseExecute1(char *input, char *progressionInit)
         //Inventar 
         if (strcmp(choice, "inventory") == 0)
         {
-            printf("In deinem Inventar befinden sich:\n %s\n", inventory);
+            for(int i = 0; i < itemCount; i++)
+            {
+            printf("In deinem Inventar befinden sich:\n %s\n", inventory[i]);
+            }
         }
         // INSPECT
         else if (strcmp(choice, "lookaround") == 0 && strcmp(progression, "0") == 0)
@@ -104,13 +102,9 @@ bool parseExecute1(char *input, char *progressionInit)
             printf(BLU);
             printf("Schublade");
             printf(RESET);
-            printf(" und es liegt ein ");
+            printf(" und es liegt eine ");
             printf(BLU);
-            printf("Kulli");
-            printf(RESET);
-            printf(" und ein ");
-            printf(BLU);
-            printf("Zettel ");
+            printf("Feder");
             printf(RESET);
             printf("auf der Schreibfläche.");
         }
@@ -186,7 +180,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Schlüssel?");
             printf(RESET);
         }
-        else if (strcmp(choice, "inspect.Schlüssel") == 0 && strcmp(progression, "schrankoffen") == 0)
+        else if (strcmp(choice, "inspect.Schlüssel") == 0 && (strcmp(progression, "schrankoffen") == 0 || strstr(inventory, "Schlüssel") != NULL))
         {
             printf("Der Schlüssel ist schon ein wenig angerostet. Er sieht nicht danach aus, als würde er in das Schloss der ");
             printf(BLU);
@@ -198,7 +192,7 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             if(itemCount < 10)
             {
-                strncpy(inventory[itemCount].name, "schlüssel", sizeof(inventory[itemCount].name) - 1);
+                strncpy(inventory[itemCount].name, "Schlüssel", sizeof(inventory[itemCount].name) - 1);
                 itemCount++;
                 printf("Du hast den Schlüssel aufgehoben und in deine Tasche gesteckt.");
             }
@@ -215,11 +209,24 @@ bool parseExecute1(char *input, char *progressionInit)
         }
         else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0 && strstr(inventory, "schlüssel") == NULL)
         {
-            printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
-        }
-        else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0 && strstr(inventory, "schlüssel") != NULL)
-        {
-            printf("Der Schlüssel passt ins Schloss und du hörst ein leises Klicken.\nDie Tür ist nun offen.\nDu stehst nun in einem dunklen Flur.");
+            int found = 0;
+            for (int i = 0; i < itemCount; i++)
+            {
+                if (strstr(inventory[i].name, "Brecheisen") != NULL)
+                {
+                    found = 1;
+                    break;
+                }
+            }
+            if (found)
+            {
+                printf("Der Schlüssel passt ins Schloss und du hörst ein leises Klicken.\nDie Tür ist nun offen.\nDu stehst nun in einem dunklen Flur.");
+            }
+            else
+            {
+                printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
+
+            }
         }
 
 
@@ -228,32 +235,163 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Du kannst die Schublade nicht öffnen, da du nicht nah genug bist.\nVersuche doch mal den command `goto.Schreibtisch`.");
         }
-        
         else if (strcmp(choice, "open.Schublade") == 0 && strcmp(progression, "tisch") == 0)
         {
             printf("Du öffnest die Schublade und findest darin einen ");
             printf(BLU);
-            printf("Faden");
+            printf("Faden,");
             printf(RESET);
-            printf(" und einen ");
+            printf(" einen ");
             printf(BLU);
-            printf("Brief.");
+            printf("Brief");
+            printf(RESET);
+            printf(" und ein ");
+            printf(BLU);
+            printf("Brecheisen.");
             printf(RESET);
             strcpy(progression, "schubladeoffen");
         }
-        
-        
+        else if (strcmp(choice, "pickup.Brecheisen") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            if(itemCount < 10)
+            {
+                strncpy(inventory[itemCount].name, "Brecheisen", sizeof(inventory[itemCount].name) - 1);
+                itemCount++;
+                printf("Du nimmst das schwere Brecheisen in deine Hand und verstaust es in deiner Tasche.");
+            }
+            else 
+            {
+                printf("Deine Taschen sind schon komplett gefüllt.");
+            }
+        }
+        else if (strcmp(choice, "pickup.Faden") == 0 && strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0)
+        {
+            if(itemCount < 10)
+            {
+                strncpy(inventory[itemCount].name, "Faden", sizeof(inventory[itemCount].name) - 1);
+                itemCount++;
+                printf("Du nimmst den Faden in deine Hand und verstaust ihn in deiner Tasche.");
+            }
+            else 
+            {
+                printf("Deine Taschen sind schon komplett gefüllt.");
+            }
+        }
+        else if (strcmp(choice, "pickup.Feder") == 0 && strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0)
+        {
+            if(itemCount < 10)
+            {
+                strncpy(inventory[itemCount].name, "Feder", sizeof(inventory[itemCount].name) - 1);
+                itemCount++;
+                printf("Du nimmst die Feder und verstaust sie in einer Hosentasche.");
+            }
+            else 
+            {
+                printf("Deine Taschen sind schon komplett gefüllt.");
+            }
+        }
+        else if (strcmp(choice, "pickup.Brief") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Der Brief hat dich irgendwie verängstigt.\nDu lässt ihn lieber in der Schublade.");
+        }
+        else if (strcmp(choice, "inspect.Brecheisen") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Das Brecheisen ist schwer und rostig.\nEs sieht so aus als könnte es nicht mehr viel Arbeit leisten.");
+        }
+        else if (strcmp(choice, "inspect.Brief") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Der Brief scheint von jemandem geschrieben worden sein, der sich in einer ähnlichen Situation befunden hat wie du.\nEs steht geschrieben: ");    
+            printf(GRN);
+            printf("Ich will das alles nicht tun. Ich will nicht mehr hier sein.\nBitte verzeiht mir. Ich hoffe ihr könnt mir verzeihen.\n");
+            printf(RESET);
+        }
+        else if (strcmp(choice, "inspect.Faden") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Der Faden ist aus einem robusten Material und sieht aus als könnte er noch nützlich sein.");
+        }
+        else if (strcmp(choice, "use.Brecheisen") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Was willst du denn mit einem Brecheisen anfangen?");
+        }
+        else if (strcmp(choice, "inspect.Feder") && strcmp(progression, "tisch") == 0 || strcmp(progression, "schubladeoffen") == 0)
+        {
+            printf("Die Feder ist voll mit eingetrockneter Tinte und sieht aus als könnte sie vielleicht noch nützlich sein.");
+        }
+
+
 
         // Fenster
         else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") != 0)
         {
             printf("Du bist zu weit vom Fenster entfernt.\nVersuche doch mal den command `goto.Kleiderschrank`.");
         }
+        else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") == 0 && strstr(inventory, "Brecheisen") == NULL)
+        {
+            printf("Du versuchst die Bretter vor dem Fenster zu entfernen, doch mit bloßen Händen ist das nicht möglich.");
+        }
         else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") == 0)
         {
-            printf("Du versuchst die Bretter vor dem Fenster zu entfernen, doch mit blo.\nVersuche doch mal den command `goto.Kleiderschrank`.");
+            int found = 0;
+            for (int i = 0; i < itemCount; i++)
+            {
+                if (strstr(inventory[i].name, "Brecheisen") != NULL)
+                {
+                    found = 1;
+                    break;
+                }
+            }
+            if (found)
+            {
+                printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach draußen zu gucken.\n Es ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\n Du kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.");
+                fensterOpen = 1;
+            }
+            else
+            {
+                printf("Die Bretter verriegeln das Fenster, es ist dir nicht möglich das Fenster auch nur einen Spalt zu öffnen.");
+            }
+        }
+        {
+            printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach drausßen zu gucken.\n Es ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\n Du kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.");
+            fensterOpen = 1;
+        }
+        else if (strcmp(choice, "use.Fenster") == 0 && strcmp(progression, "fenster") != 0)
+        {
+            printf("Du bist zu weit vom Fenster entfernt.\nVersuche doch mal den command `goto.Kleiderschrank`.");
+        }
+        else if (strcmp(choice, "use.Fenster") == 0 && strcmp(progression, "fenster") == 0 && fensterOpen == 0)
+        {
+            printf("Die Bretter verriegeln das Fenster, es ist dir nicht möglich das Fenster auch nur einen Spalt zu öffnen.");
+        }
+        else if (strcmp(choice, "use.Fenster") == 0 && strcmp(progression, "fenster") == 0 && fensterOpen == 1)
+        {
+            printf("Du kletterst vorsichtig aus dem offenen Fenster auf den Vorsprung.\nAls du runterguckst und den Boden in der ferne erblickst, fängt sich alles um dich herum an zu drehen.\nDu verlierst den Halt und rutscht ab in die Tiefe. Das letzte was du merkst ist wie nahezu jeder Knochen deines Körpers durch den Aufprall zerschmettert.");
+            printf(BRED);
+			printf("\nGAME OVER\n\n");
+			printf(RESET);
+			exit(1);
         }
 
+        // Bild
+        
+
+
+        
+        
+        
+        
+        
+        else if (strcmp(choice, "help") == 0)
+		{
+			printf(BLU);
+			printf("\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
+			printf(RESET);
+        }
+        else
+		{
+			printf(URED);
+			printf("\nDeine Eingabe ist nicht zulässig.\nSchreibe `help` um eine Hilfestellung zu erhalten.\n");
+			printf(RESET);
+		}
     }
 return true;
 }
