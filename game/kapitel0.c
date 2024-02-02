@@ -9,6 +9,8 @@
 #define BLU "\e[0;34m"
 #define RESET "\033[0m"
 
+
+
 bool getInput0();
 bool parseExecute0(char *input, char *conLevelInit);
 
@@ -103,12 +105,21 @@ bool parseExecute0(char *input, char *conLevelInit)
 		{
 			return 0;
 		}
+		/*
+		//Cheats 
+		else if (strcmp(choice, "cheats.kapitel1") == 0)
+		{
+			main1();
+		}
+		*/
 		else
 		{
 			printf(URED);
 			printf("\nDeine Eingabe ist nicht zulässig.\nSchreibe `help` um eine Hilfestellung zu erhalten.\n");
 			printf(RESET);
 		}
+
+
 	}
 	return true;
 }

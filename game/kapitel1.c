@@ -20,7 +20,8 @@ typedef struct {
 Item inventory[10];
 int itemCount = 0;
 int fensterOpen = 0;
-
+int foundtür = 0;
+int foundfenster = 0;
 int main1()
 {
     printf("\nDeine Muskel fühlen sich schwach an, aber du stehst nun.\nDu scheinst dich in einem alten Schlafzimmer zu befinden.\n");
@@ -58,9 +59,10 @@ bool parseExecute1(char *input, char *progressionInit)
         //Inventar 
         if (strcmp(choice, "inventory") == 0)
         {
+            printf("In deinem Inventar befinden sich:\n");
             for(int i = 0; i < itemCount; i++)
             {
-            printf("In deinem Inventar befinden sich:\n %s\n", inventory[i]);
+            printf("%s\n", inventory[i]);
             }
         }
         // INSPECT
@@ -152,7 +154,7 @@ bool parseExecute1(char *input, char *progressionInit)
         else if (strcmp(choice, "goto.Bild") == 0)
         {
             printf("Du befindest dich jetzt vor dem Gemälde.\nDer Mann hat eine ominöse Ausstrahlung.");
-            strcpy(progression, "fenster");
+            strcpy(progression, "bild");
         }
         else if (strcmp(choice, "goto.Tür") == 0)
         {
@@ -207,18 +209,18 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
         }
-        else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0 && strstr(inventory, "schlüssel") == NULL)
+       
+        else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0)
         {
-            int found = 0;
             for (int i = 0; i < itemCount; i++)
             {
-                if (strstr(inventory[i].name, "Brecheisen") != NULL)
+                if (strstr(inventory[i].name, "Schlüssel") != NULL)
                 {
-                    found = 1;
+                    foundtür = 1;
                     break;
                 }
             }
-            if (found)
+            if (foundtür)
             {
                 printf("Der Schlüssel passt ins Schloss und du hörst ein leises Klicken.\nDie Tür ist nun offen.\nDu stehst nun in einem dunklen Flur.");
             }
@@ -239,7 +241,7 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Du öffnest die Schublade und findest darin einen ");
             printf(BLU);
-            printf("Faden,");
+            printf("Faden, ");
             printf(RESET);
             printf(" einen ");
             printf(BLU);
@@ -325,22 +327,19 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Du bist zu weit vom Fenster entfernt.\nVersuche doch mal den command `goto.Kleiderschrank`.");
         }
-        else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") == 0 && strstr(inventory, "Brecheisen") == NULL)
-        {
-            printf("Du versuchst die Bretter vor dem Fenster zu entfernen, doch mit bloßen Händen ist das nicht möglich.");
-        }
+
         else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") == 0)
         {
-            int found = 0;
+            
             for (int i = 0; i < itemCount; i++)
             {
                 if (strstr(inventory[i].name, "Brecheisen") != NULL)
                 {
-                    found = 1;
+                    foundfenster = 1;
                     break;
                 }
             }
-            if (found)
+            if (foundfenster)
             {
                 printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach draußen zu gucken.\n Es ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\n Du kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.");
                 fensterOpen = 1;
@@ -349,10 +348,6 @@ bool parseExecute1(char *input, char *progressionInit)
             {
                 printf("Die Bretter verriegeln das Fenster, es ist dir nicht möglich das Fenster auch nur einen Spalt zu öffnen.");
             }
-        }
-        {
-            printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach drausßen zu gucken.\n Es ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\n Du kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.");
-            fensterOpen = 1;
         }
         else if (strcmp(choice, "use.Fenster") == 0 && strcmp(progression, "fenster") != 0)
         {
@@ -372,13 +367,31 @@ bool parseExecute1(char *input, char *progressionInit)
         }
 
         // Bild
+        else if (strcmp(choice, "use.Bild") == 0 && strcmp(progression, "bild") == 0)
+        {
+            printf("Du drehst das Bild um und siehst wie sich die Bildfläche wölbt.\nDu hörst einen entfernten Schrei.\nAus dem Bild tritt eine Hand hervor und greift nach dir.\nDu fühlst wie du in das Bild hineingezogen wirst und alles um dich herum verschwimmt.");
+            printf(BRED);
+            printf("\n\nGAME OVER\n\n");
+            printf(RESET);
+            exit(1);
+        }
+        else if (strcmp(choice, "pickup.Bild") == 0 && strcmp(progression, "bild") == 0)
+        {
+            printf("Du willst wirklich ein 2m x 1m großes Bild mitnehmen?");
+        }
         
+        // Cheats
+        else if (strcmp(choice, "cheats.allitems") == 0)
+        {
+            strncpy(inventory[0].name, "Feder", sizeof(inventory[0].name) - 1);
+            strncpy(inventory[1].name, "Schlüssel", sizeof(inventory[1].name) - 1);
+            strncpy(inventory[2].name, "Faden", sizeof(inventory[2].name) - 1);
+            strncpy(inventory[3].name, "Brecheisen", sizeof(inventory[3].name) - 1);
+            itemCount = 4;
+            printf("Du hast alle Items erhalten.");
+        }
+  
 
-
-        
-        
-        
-        
         
         else if (strcmp(choice, "help") == 0)
 		{
