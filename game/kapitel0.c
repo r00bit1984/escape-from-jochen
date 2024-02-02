@@ -78,7 +78,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 		{
 			printf("\nDu merkst wie du weiter in die Dunkelheit gleitest und dein metaphorischer Körper von einem dunklen Nebel eingehüllt wird.\nDu bist jetzt Teil der Dunkelheit und es gibt keine Chance mehr, dass du je wieder zurück zur Realität gelangst.\n");
 			printf(BRED);
-			printf("\nGAME OVER\n");
+			printf("\nGAME OVER\n\n");
 			printf(RESET);
 			exit(1);
 			strcpy(conLevel, "2c");
