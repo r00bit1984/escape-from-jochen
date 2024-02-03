@@ -130,6 +130,10 @@ bool parseExecute1(char *input, char *progressionInit)
             printf(RESET);
         }
         
+        // Bett
+        else if (strcmp(choice, "inspect.Bett") == 0)
+        
+        
         // GOTO
         else if (strcmp(choice, "goto.Bett") == 0)
         {
