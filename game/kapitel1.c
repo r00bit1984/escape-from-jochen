@@ -132,7 +132,9 @@ bool parseExecute1(char *input, char *progressionInit)
         
         // Bett
         else if (strcmp(choice, "inspect.Bett") == 0)
-        
+        {
+            printf("");
+        }
         
         // GOTO
         else if (strcmp(choice, "goto.Bett") == 0)
@@ -270,7 +272,7 @@ bool parseExecute1(char *input, char *progressionInit)
                 printf("Deine Taschen sind schon komplett gefüllt.");
             }
         }
-        else if (strcmp(choice, "pickup.Faden") == 0 && strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0)
+        else if (strcmp(choice, "pickup.Faden") == 0 && (strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0))
         {
             if(itemCount < 10)
             {
@@ -283,7 +285,7 @@ bool parseExecute1(char *input, char *progressionInit)
                 printf("Deine Taschen sind schon komplett gefüllt.");
             }
         }
-        else if (strcmp(choice, "pickup.Feder") == 0 && strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0)
+        else if (strcmp(choice, "pickup.Feder") == 0 && (strcmp(progression, "schubladeoffen") == 0 || strcmp(progression, "tisch") == 0))
         {
             if(itemCount < 10)
             {
@@ -319,7 +321,7 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Was willst du denn mit einem Brecheisen anfangen?");
         }
-        else if (strcmp(choice, "inspect.Feder") && strcmp(progression, "tisch") == 0 || strcmp(progression, "schubladeoffen") == 0)
+        else if (strcmp(choice, "inspect.Feder") && (strcmp(progression, "tisch") == 0 || strcmp(progression, "schubladeoffen") == 0))
         {
             printf("Die Feder ist voll mit eingetrockneter Tinte und sieht aus als könnte sie vielleicht noch nützlich sein.");
         }
