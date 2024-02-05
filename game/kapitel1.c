@@ -68,7 +68,7 @@ bool parseExecute1(char *input, char *progressionInit)
         // INSPECT
         else if (strcmp(choice, "lookaround") == 0 && strcmp(progression, "0") == 0)
         {
-            printf("Das Zimmer hat keine Fenster und es ist sehr dunkel.\nDeine Sicht ist immer noch verschwommen und du musst dich anstrengen mehr als nur Silhoutten von Objekten um dich herum zu erkennen.\nIn dem Zimmer befindet sich ein altes "); 
+            printf("In dem Zimmer ist es sehr dunkel.\nDeine Sicht ist immer noch verschwommen und du musst dich anstrengen mehr als nur Silhoutten von Objekten um dich herum zu erkennen.\nIn dem Zimmer befindet sich ein altes "); 
             printf(BLU);
             printf("Bett");
             printf(RESET);
