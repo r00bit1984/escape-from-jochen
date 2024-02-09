@@ -9,15 +9,17 @@
 #define RESET "\033[0m"
 #define GRN "\e[0;32m"
 
+#include "inventory.h"
+
 bool getInput1();
 bool parseExecute1(char *input, char *progressionInit);
 
 static char input[100];
 static char progressionInit[20] = "0";
-typedef struct {
-    char name[50]; 
-} Item;
-Item inventory[10];
+// typedef struct {
+//     char name[50]; 
+// } Item;
+// Item inventory[10];
 int itemCount = 0;
 int fensterOpen = 0;
 int foundtür = 0;
@@ -27,11 +29,12 @@ int federPickedUp = 0;
 int fadenPickedUp = 0;
 int brecheisenPickedUp = 0;
 int astPickedUp = 0;
+int stockPickedUp = 0;
 int main1()
 {
     printf("\nDeine Muskel fühlen sich schwach an, aber du stehst nun.\nDu scheinst dich in einem alten Schlafzimmer zu befinden.\n");
     printf(BLU);
-    printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n-inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
+    printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
     printf(RESET);
     while(1)
     {
@@ -114,7 +117,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf(RESET);
             printf(" und es liegt eine ");
             printf(BLU);
-            printf("Feder");
+            printf("Feder ");
             printf(RESET);
             printf("auf der Schreibfläche.");
         }
@@ -122,17 +125,17 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Der Kleiderschrank ist aus massivem, dunklem Holz.\nVielleicht lässt er sich öffnen?");
         }
-        else if (strcmp(choice, "inspect.Fenster") == 0 && fensterOpen == 0)
+        else if (strcmp(choice, "inspect.Fenster") == 0)
         {
             printf("Das Fenster sieht aus als wäre es schon immer verbarrikadiert gewesen.\nDu zweifelst daran die Holzplanken entfernen zu können.");
         }
-        else if (strcmp(choice, "inspect.Fenster") == 0 && fensterOpen == 1)
-        {
-            printf("Auf dem Vorsprung liegt ein krummer ");
-            printf(BLU);
-            printf("Ast.");
-            printf(RESET);  
-        }
+        // else if (strcmp(choice, "inspect.Fenster") == 0 && fensterOpen == 1)
+        // {
+        //     printf("Auf dem Vorsprung liegt ein krummer ");
+        //     printf(BLU);
+        //     printf("Ast.");
+        //     printf(RESET);  
+        // }
 
         else if (strcmp(choice, "inspect.Bild") == 0)
         {
@@ -149,23 +152,27 @@ bool parseExecute1(char *input, char *progressionInit)
         
         // Bett
 
-        else if(strcmp(choice, "use.Bett") == 0)
+        else if(strcmp(choice, "use.Bett") == 0 && strcmp(progression, "bett") == 0)
         {
             printf("Du fühlst dich zwar sehr müde, aber du kannst nicht einfach wieder schlafen gehen.\nDu musst herausfinden wo du bist und wie du hierher gekommen bist.");
         }
-        else if(strcmp(choice, "pickup.Holzstock") == 0)
+        else if((strcmp(choice, "pickup.Holzstock") == 0 || strcmp(choice, "pickup.Stock") == 0) && stockPickedUp == 0 && strcmp(progression, "bett") == 0)
         {    
             if(itemCount < 10)
             {
-                strncpy(inventory[itemCount].name, "Schlüssel", sizeof(inventory[itemCount].name) - 1);
+                strncpy(inventory[itemCount].name, "Holzstock", sizeof(inventory[itemCount].name) - 1);
                 itemCount++;
-                printf("Du hast den Schlüssel aufgehoben und in deine Tasche gesteckt.");
-                keyPickedUp = 1;
+                printf("Du hast den Stock aufgehoben und verstaut.");
+                stockPickedUp = 1;
             }
             else 
             {
                 printf("Deine Taschen sind schon komplett gefüllt.");
             }
+        }
+        else if((strcmp(choice, "pickup.Holzstock") == 0 || strcmp(choice, "pickup.Stock") == 0) && stockPickedUp == 1)
+        {
+            printf("Der Holzstock befindet sich schon in deinem Besitz.");
         }
         // GOTO
         else if (strcmp(choice, "goto.Bett") == 0)
@@ -252,7 +259,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
         }
        
-        else if (strcmp(choice, "open.Schloss") == 0 && strcmp(progression, "tür") == 0)
+        else if ((strcmp(choice, "open.Schloss") == 0 || strcmp(choice, "open.Tür") == 0) && strcmp(progression, "tür") == 0)
         {
             for (int i = 0; i < itemCount; i++)
             {
@@ -283,7 +290,7 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Du öffnest die Schublade und findest darin einen ");
             printf(BLU);
-            printf("Faden, ");
+            printf("Faden,");
             printf(RESET);
             printf(" einen ");
             printf(BLU);
@@ -398,7 +405,11 @@ bool parseExecute1(char *input, char *progressionInit)
             }
             if (foundfenster)
             {
-                printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach draußen zu gucken.\n Es ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\n Du kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.");
+                printf("Du löst Stück für Stück die Bretter vom Fenster.\nNachdem das letzte Brett auf den Boden fällt, ist es dir möglich nach draußen zu gucken.\nEs ist nahzu komplett dunkel draußen, lediglich der zunehmende Neumond spendet sperlich etwas Licht.\nDu kannst die Umrisse eines düsteren Waldes erkennen,\nweit und breit ist nichts außer kahlen Bäumen, die sich langsam im Wind bewegen.\n");
+                printf("Auf dem Vorsprung liegt ein krummer ");
+                printf(BLU);
+                printf("Ast.");
+                printf(RESET);  
                 fensterOpen = 1;
             }
             else
@@ -421,7 +432,7 @@ bool parseExecute1(char *input, char *progressionInit)
 			printf("\nGAME OVER\n\n");
 			printf(RESET);
         }
-        }
+        
 
         else if (strcmp(choice, "pickup.Ast") == 0 && strcmp(progression, "fenster") == 0 && astPickedUp == 0)
         {
@@ -437,7 +448,10 @@ bool parseExecute1(char *input, char *progressionInit)
                 printf("Deine Taschen sind schon komplett gefüllt.");
             }
         }
-        
+        else if (strcmp(choice, "pickup.Ast") == 0 && strcmp(progression, "fenster") == 0 && astPickedUp == 1)
+        {
+            printf("Der Ast befindet sich schon in deinem Besitz.");
+        }
 
         // Bild
         else if (strcmp(choice, "use.Bild") == 0 && strcmp(progression, "bild") == 0)
@@ -469,7 +483,7 @@ bool parseExecute1(char *input, char *progressionInit)
         else if (strcmp(choice, "help") == 0)
 		{
 			printf(BLU);
-			printf("\nTUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n-inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
+			printf("\nTUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
 			printf(RESET);
         }
         else
