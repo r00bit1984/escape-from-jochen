@@ -5,6 +5,7 @@
 
 #include"kapitel0.h"
 #include"kapitel1.h"
+#include"kapitel2.h"
 
 int main()
 {
@@ -18,4 +19,5 @@ int main()
 	puts("                   |_|");                                                                       
 	main0();
 	main1();
+	main2();
 }

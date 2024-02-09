@@ -6,3 +6,4 @@
 // } Item;
 
 Item inventory[10];  // Define the variable
+int itemCount;

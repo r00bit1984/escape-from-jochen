@@ -20,7 +20,7 @@ static char progressionInit[20] = "0";
 //     char name[50]; 
 // } Item;
 // Item inventory[10];
-int itemCount = 0;
+// int itemCount = 0;
 int fensterOpen = 0;
 int foundtür = 0;
 int foundfenster = 0;
@@ -30,6 +30,8 @@ int fadenPickedUp = 0;
 int brecheisenPickedUp = 0;
 int astPickedUp = 0;
 int stockPickedUp = 0;
+int türOpen = 0;
+itemCount = 0;
 int main1()
 {
     printf("\nDeine Muskel fühlen sich schwach an, aber du stehst nun.\nDu scheinst dich in einem alten Schlafzimmer zu befinden.\n");
@@ -271,13 +273,23 @@ bool parseExecute1(char *input, char *progressionInit)
             }
             if (foundtür)
             {
-                printf("Der Schlüssel passt ins Schloss und du hörst ein leises Klicken.\nDie Tür ist nun offen.\nDu stehst nun in einem dunklen Flur.");
+                printf("Der Schlüssel passt ins Schloss und du hörst ein leises Klicken.\nDie Tür ist nun offen.\nDu siehtst einen dunklen ");
+                printf(BLU);
+                printf("Flur");
+                printf(RESET);
+                printf(" vor dir.");
+                türOpen = 1;
             }
             else
             {
                 printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
 
             }
+        }
+        else if ((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "goto.Flur"))  && strcmp(progression, "tür") == 0 && türOpen == 1)
+        {
+            printf("Du verlässt das Zimmer durch die Türe.");
+            return 1;
         }
 
 
