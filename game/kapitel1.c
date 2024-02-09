@@ -38,13 +38,16 @@ int main1()
     printf(BLU);
     printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
     printf(RESET);
-    while(1)
+/*    while(1)
     {
        if(getInput1())
             parseExecute1(input, progressionInit);
         else
-            return 0;
+            return 1;
     } 
+    return 0;
+*/ 
+    while (getInput1() && parseExecute1(input, progressionInit));
     return 0;
 }
 
@@ -202,11 +205,16 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Du befindest dich jetzt vor dem Gemälde.\nDer Mann hat eine ominöse Ausstrahlung.");
             strcpy(progression, "bild");
         }
-        else if (strcmp(choice, "goto.Tür") == 0)
+        else if (strcmp(choice, "goto.Tür") == 0 && türOpen == 0)
         {
             printf("Du befindest dich jetzt vor der Tür.\nSie ist verschlossen.");
             strcpy(progression, "tür");
-        }   
+        }
+        else if (strcmp(choice, "goto.Tür") == 0 && türOpen == 1)
+        {
+            printf("Die Tür ist nun offen.");
+            strcpy(progression, "tür");
+        }    
 
         // Kleiderschrank
         else if (strcmp(choice, "open.Kleiderschrank") == 0 && strcmp(progression, "schrank") != 0)
@@ -286,10 +294,10 @@ bool parseExecute1(char *input, char *progressionInit)
 
             }
         }
-        else if ((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "goto.Flur"))  && strcmp(progression, "tür") == 0 && türOpen == 1)
+        else if ((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "goto.Flur") == 0)  && strcmp(progression, "tür") == 0 && türOpen == 1)
         {
             printf("Du verlässt das Zimmer durch die Türe.");
-            return 1;
+            return 0;
         }
 
 
@@ -486,7 +494,9 @@ bool parseExecute1(char *input, char *progressionInit)
             strncpy(inventory[1].name, "Schlüssel", sizeof(inventory[1].name) - 1);
             strncpy(inventory[2].name, "Faden", sizeof(inventory[2].name) - 1);
             strncpy(inventory[3].name, "Brecheisen", sizeof(inventory[3].name) - 1);
-            itemCount = 4;
+            strncpy(inventory[4].name, "Ast", sizeof(inventory[4].name) - 1);
+            strncpy(inventory[5].name, "Holzstock", sizeof(inventory[5].name) - 1);
+            itemCount = 6;
             printf("Du hast alle Items erhalten.");
         }
   
