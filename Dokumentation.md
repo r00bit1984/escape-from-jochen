@@ -7,6 +7,16 @@
   - `studbool.h`: Funktionen geben Wahr/Falsch zurück
   - `string.h`: Funktionen wie `strcmp` werden ausgiebig verwendet
   - `stdlib.h`: Für die Funktion `exit`
+- Farben werden z.B. verwendet um Gegenstände hervorzuheben, mit denen interagiert werden kann
+  - Sie werden als ANSI color codes definiert:
+```C
+#define BRED "\e[1;31m"
+#define URED "\e[4;31m"
+#define BLU "\e[0;34m"
+#define RESET "\033[0m"
+#define GRN "\e[0;32m"
+```
+
 - Für das **Erfassen** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt
 ```C
 bool getInput()
@@ -30,9 +40,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Shutting down...");
             exit(1);
         }
-<<<<<<< HEAD
-``
-=======
 ```
 
->>>>>>> 20989c6 (Updates)
+-
+
