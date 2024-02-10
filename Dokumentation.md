@@ -25,9 +25,14 @@ bool parseExecute1(char *input, char *progressionInit)
     char *progression = strtok(progressionInit, " \n");
     if (choice != NULL)
     {
-        if (strcmp(choice, "quit") == 0)
+        if (strcmp(choice, "quit") == 0) // Hier wird definiert, was passiert, wenn der Spieler "quit" eingibt
         {
             printf("Shutting down...");
             exit(1);
         }
+<<<<<<< HEAD
 ``
+=======
+```
+
+>>>>>>> 20989c6 (Updates)
