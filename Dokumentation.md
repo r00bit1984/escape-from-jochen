@@ -16,7 +16,7 @@ bool getInput()
 }
 ```
 
-- Für das **Verarbeiten** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt
+- Für das **Verarbeiten** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt\
 Ausschnitt der Funktion:
 ```C
 bool parseExecute1(char *input, char *progressionInit)
