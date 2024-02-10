@@ -1,5 +1,5 @@
 # Dokumentation
-- Unser Spiel ist in verschiedene '.c' Dateien aufgeteilt (Kapitelweise)
+- Unser Spiel ist in verschiedene `.c` Dateien aufgeteilt (Kapitelweise)
 - Jede diese Dateien hat eine zugehörige Header-Datei, in der die Funktionen der einzelnen `.c` Dateien deklariert werden
 - Die `main()`-Funktionen der einzelnen Kapitel werden der Übersicht halber einfach in `main.c` aufgerufen
 - Verschiedene Bibliotheken werden benutzt, beispielsweise:
@@ -40,7 +40,15 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Shutting down...");
             exit(1);
         }
+        // ... Mehr User-Input
 ```
 
--
-
+- Es werden diverse Variablen angelegt, die den Fortschritt tracken
+```
+...
+int fadenPickedUp = 0;
+int brecheisenPickedUp = 0;
+int astPickedUp = 0;
+int stockPickedUp = 0;
+...
+```
