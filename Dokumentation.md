@@ -44,7 +44,7 @@ bool parseExecute1(char *input, char *progressionInit)
 ```
 
 - Es werden diverse Variablen angelegt, die den Fortschritt tracken
-```
+```C
 ...
 int fadenPickedUp = 0;
 int brecheisenPickedUp = 0;
@@ -52,3 +52,4 @@ int astPickedUp = 0;
 int stockPickedUp = 0;
 ...
 ```
+
