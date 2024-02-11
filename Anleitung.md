@@ -4,6 +4,9 @@
 > [!TIP]
 > Der `help` command in-game kann auch manchmal weiterhelfen
 
+> [!NOTE]
+> Wenn du das “gute” Ende erreichen willst, musst du die einzelnen Kapitel mehr erkunden als in diesem Guide angeschnitten. Dieser Guide soll dich einfach durch das Spiel auf die unkomplizierteste Art bringen.
+
 # Kapitel 0
 In diesem Kapitel kannst du noch nicht mit der Welt um dich herum interagieren. Um am schnellsten durch dieses Kapitel wähle einfach **Vier mal** die **erste** Option.
 
@@ -33,6 +36,18 @@ goto.Flur
 ```
 
 # Kapitel 2
+- Das zweite Kapitel ist sehr linear gehalten.\
+- Um hier vorwärts zu kommen gebe einfach Sechs mal
+```
+inspect.Bild
+```
+- Du stößt dann auf eine Werkbank und hast die Option, wenn du die nötigen Materialien besitzt einen Bogen zu craften:
+```
+craft.Bogen
+```
+
+
+
 
 
 
