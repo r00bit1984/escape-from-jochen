@@ -1,6 +1,8 @@
-> :warning: Es empfiehlt sich das Spiel erst einmal **ohne Hilfe der Anleitung** zu spielen!
+> [!IMPORTANT]
+> Es empfiehlt sich das Spiel erst einmal **ohne Hilfe der Anleitung** zu spielen!
 
-> :information: Der `help` command in-game kann auch manchmal weiterhelfen
+> [!TIP]
+> Der `help` command in-game kann auch manchmal weiterhelfen
 
 # Kapitel 0
 In diesem Kapitel kannst du noch nicht mit der Welt um dich herum interagieren. Um am schnellsten durch dieses Kapitel wähle einfach **Vier mal** die **erste** Option.
