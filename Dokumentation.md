@@ -9,13 +9,13 @@
   - `stdlib.h`: Für die Funktion `exit`
 - Farben werden z.B. verwendet um Gegenstände hervorzuheben, mit denen interagiert werden kann
   - Sie werden als ANSI color codes definiert:
-```C
-#define BRED "\e[1;31m"
-#define URED "\e[4;31m"
-#define BLU "\e[0;34m"
-#define RESET "\033[0m"
-#define GRN "\e[0;32m"
-```
+  ```C
+  #define BRED "\e[1;31m"
+  #define URED "\e[4;31m"
+  #define BLU "\e[0;34m"
+  #define RESET "\033[0m"
+  #define GRN "\e[0;32m"
+  ```
 
 - Für das **Erfassen** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt
 ```C
@@ -52,4 +52,40 @@ int astPickedUp = 0;
 int stockPickedUp = 0;
 ...
 ```
+
+- Das Inventar wird in eine seperate `c`-Datei ausgelagert
+```C
+// inventory.c
+#include "inventory.h"
+
+Item inventory[10];
+int itemCount;
+
+// inventory.h
+#ifndef INVENTORY_H
+#define INVENTORY_H
+
+typedef struct {
+    char name[50];
+} Item;
+
+extern int itemCount;
+extern Item inventory[10];
+
+#endif // INVENTORY_H
+```
+  - Um dann das Inventar zu Printen wird folgende Lösung verwendet:
+  ```C
+  //Inventar
+  if (strcmp(choice, "inventory") == 0 || strcmp(choice, "Inventory") == 0)
+  {
+      printf("In deinem Inventar befinden sich:\n");
+      for(int i = 0; i < itemCount; i++)
+      {
+      printf("%s\n", inventory[i]); // Ausgeben des Inhalts des Inventars
+      }
+  }
+  ```
+
+
 
