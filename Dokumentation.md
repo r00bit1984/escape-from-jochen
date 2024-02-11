@@ -74,7 +74,7 @@ extern Item inventory[10];
 
 #endif // INVENTORY_H
 ```
-  - Um dann das Inventar zu Printen wird folgende Lösung verwendet:
+  - Um dann das Inventar zu printen wird folgende Lösung verwendet:
   ```C
   //Inventar
   if (strcmp(choice, "inventory") == 0 || strcmp(choice, "Inventory") == 0)
