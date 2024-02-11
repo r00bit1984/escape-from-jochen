@@ -87,5 +87,17 @@ extern Item inventory[10];
   }
   ```
 
+- Um das Inventar auf die Existenz eines spezifischen Items zu überprüfen musste dann folgende Funktion eingesetzt werden:
+```C
+if(itemCount < 10)
+{
+    strncpy(inventory[itemCount].name, "Feder", sizeof(inventory[itemCount].name) - 1); // Hier wird auf das Vorkommen von "Feder" geprüft
+    itemCount++; // Der Item Count wird erhöht
+    printf("Du nimmst die Feder und verstaust sie in einer Hosentasche.");
+    federPickedUp = 1;
+}
+```
+
+
 
 
