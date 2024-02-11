@@ -225,8 +225,9 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Du öffnest die schweren Türen des Schranks und wirst\nerst einmal mit einer Ladung Staub begrüßt.\nDu sieht diverse Kleidungsstücke, Jacken, Hemden und Hosen.\nDu siehst einen gläzenden Gegenstand in einer der ");
             printf(BLU);
-            printf("Jackentaschen.");
+            printf("Jackentasche");
             printf(RESET);
+            printf("n.");
             strcpy(progression, "schrankoffen");
         }
         else if (strcmp(choice, "inspect.Jackentasche") == 0 && strcmp(progression, "schrankoffen") == 0)
