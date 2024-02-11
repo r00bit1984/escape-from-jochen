@@ -90,7 +90,7 @@ int stockPickedUp = 0;
 ...
 ```
 
-- Das Inventar wird in eine seperate `c`-Datei ausgelagert
+- Das Inventar wird in seperate Dateien ausgelagert
 ```C
 // inventory.c
 #include "inventory.h"
