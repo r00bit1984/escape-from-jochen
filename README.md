@@ -124,7 +124,7 @@ extern Item inventory[10];
   }
   ```
 
-- Um das Inventar auf die Existenz eines spezifischen Items zu überprüfen musste dann folgende Funktion eingesetzt werden:
+- Um dem Inventar ein Item hinzuzufügen wurde dann folgende Funktion eingesetzt:
 ```C
 if(itemCount < 10)
 {
