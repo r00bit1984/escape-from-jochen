@@ -17,7 +17,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 - **Funktionsumfang**:
   - Der Spieler kann verschiedene Dialogoptionen wählen
   - Das Spiel ist in Kapitel unterteilt
-  - Der Spieler kann verschiedene Aktionen ausführen, wie zum Beispiel `lookat`, `lookaround`, `pickup` etc.
+  - Der Spieler kann verschiedene Aktionen ausführen, wie zum Beispiel `inspect`, `lookaround`, `pickup` etc.
   - Kleinere Rätsel um von Raum zu Raum vorwärtszukommen
   - Größtenteils lineares Spiel, jedoch alternative Enden
   - Entscheidungen des Spielers sollen Konsequenzen haben
@@ -26,7 +26,8 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
   - Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
   - Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
     - So soll es eine Datei `kapitel0.c`, `kapitel1.c` etc. geben 
-  - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in eine Funktion "`parseExecute`" ausgelagert werden
+  - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in den Funktionen "`getInput`" & "`parseExecute`" ausgelagert werden
+  - Die beiden Funktionen, mit dem Rückgabewert boolean, werden solange in einer while-Schleife (welche sich in der `main`-Funktion befindet) ausgeführt, bis eine der beiden Funtionen false zurück gibt.
   - Es soll mit Konversationsebenen gearbeitet werden, sodass sich verschiedene Entscheidungen des Spielers auf den Fluss der Unterhaltung/den Verlauf des Spiel auswirken
   - Verschiedene Farben sollen zum Einsatz kommen, z.B. farbliche Kenntmachung von Objekten mit denen interagiert werden kann
   - Die `main.c` Datei soll möglichst minimal gehalten werden
@@ -54,7 +55,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
   #define GRN "\e[0;32m"
   ```
 
-- Für das **Erfassen** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt
+- Für das **Erfassen** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt. Diese gibt einen Pfeil aus, um dem Spieler zu signalisieren dass eine Eingabe gefordert wird, gibt true zurück wenn eine Eingabe betätigt wurde und speichert diese in der Variable `input`.
 ```C
 bool getInput()
 {
@@ -63,7 +64,7 @@ bool getInput()
 }
 ```
 
-- Für das **Verarbeiten** der Eingaben des Spielers wird eine Funktion `getInput` eingesetzt\
+- Für das **Verarbeiten** der Eingaben des Spielers wird eine Funktion `parseExecute` eingesetzt. Sie bekommt als Parameter die Eingabe des Spielers (`input`) und den initialen Ort, an dem sich der Spieler befindet (`progressionInit`), übergeben. Der input des Spielers wird in der Variable `choice` abgelegt. Anschließend werden in mehreren if-Verzweigungen die Eingabe sowie die verschiedene andere Vorraussetzungen geprüft (z.B der aktuelle progression-state, ob sich entsprechende Items im Inventar befinden oder andere Fortschritte des Spielers) und die entsprechende Anweisung ausgeführt. Sollte keine der Vorraussetzungen zutreffen, wird eine Hilfe/ ein Tipp an den Spieler ausgegeben. Zum Schluss gibt die Funktion den Rückhabewert true zurück.\
 Ausschnitt der Funktion:
 ```C
 bool parseExecute1(char *input, char *progressionInit)
@@ -80,17 +81,19 @@ bool parseExecute1(char *input, char *progressionInit)
         // ... Mehr User-Input
 ```
 
-- Es werden diverse Variablen angelegt, die den Fortschritt tracken
+- Es werden diverse Variablen angelegt, die den Fortschritt tracken.
 ```C
 ...
 int fadenPickedUp = 0;
 int brecheisenPickedUp = 0;
 int astPickedUp = 0;
 int stockPickedUp = 0;
+int fensterOpen = 0;
+int foundtür = 0;
 ...
 ```
 
-- Das Inventar wird in seperate Dateien ausgelagert
+- Das Inventar wird in seperate Dateien ausgelagert, damit es in den verschiedenen Kapiteln verwendet werden kann ohne das Items "verloren" gehen. Das Inventar ist ein Array des eigens definierten Datentyps `Item`, welches als `char`-Array definiert ist. Die Variable `itemCount` speichert wie viele Items zurzeit gespeichert sind bzw. in welchem Feld des Arrays das nächste Item gespeichert werden soll.
 ```C
 // inventory.c
 #include "inventory.h"
@@ -111,7 +114,7 @@ extern Item inventory[10];
 
 #endif // INVENTORY_H
 ```
-  - Um dann das Inventar zu printen wird folgende Lösung verwendet:
+  - Um dann das Inventar zu printen wird das Array in einem Loop durchgegangen und die einzelnen Felder ausgegeben.
   ```C
   //Inventar
   if (strcmp(choice, "inventory") == 0 || strcmp(choice, "Inventory") == 0)
