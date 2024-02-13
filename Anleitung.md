@@ -36,11 +36,12 @@ goto.Flur
 ```
 
 # Kapitel 2
-- Das zweite Kapitel ist sehr linear gehalten.\
+- Das zweite Kapitel ist sehr linear gehalten.
 - Um hier vorwärts zu kommen gebe einfach Sechs mal
 ```
 inspect.Bild
 ```
+ein
 - Du stößt dann auf eine Werkbank und hast die Option, wenn du die nötigen Materialien besitzt einen Bogen zu craften:
 ```
 craft.Bogen
