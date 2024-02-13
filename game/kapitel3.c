@@ -156,7 +156,7 @@ bool parseExecute3(char *input, char *conLevelInit)
                 printf(BRED);
                 printf("FREU DICH NICHT ZU FRÜH...\n");
                 printf(RESET);
-                printf("Du hörst ein lautes Krachen, Jochen verschwindet und lässt eine Lache Blut zurück.\n Dir wird schlecht und du fühlst dich schwindelig.\n");
+                printf("Du hörst ein lautes Krachen, Jochen verschwindet und lässt eine Lache Blut zurück.\nDir wird schlecht und du fühlst dich schwindelig.\n");
                 printf(BLU);
                 printf("1. Fortfahren\n");
                 printf(RESET);
@@ -166,20 +166,20 @@ bool parseExecute3(char *input, char *conLevelInit)
             }
             else
             {
-                printf("Mit erhobenen Fäusten rennst du auf das Wesen los, bereit ihm mitten ins Gesicht zu boxen!");
+                printf("Mit erhobenen Fäusten rennst du auf das Wesen los, bereit ihm mitten ins Gesicht zu boxen!\n");
                 printf(BRED);
-                printf("Ist das dein Ernst? Denkst du wirklich du hättest mit bloßen Händen eine Chance gegen mich?");
+                printf("Ist das dein Ernst? Denkst du wirklich du hättest mit bloßen Händen eine Chance gegen mich?\n");
                 printf(RESET);
                 printf("Mit einem Satz springt das Wesen auf dich zu, so schnell dass du keine Möglichkeit zum reagieren hast.\n");
                 printf("Die Hand des Wesens rast auf deinen Hals zu und schon im nächsten Moment schlitzt es mit seinen klauenartigen Fingern deine Kehle durch.\n");
                 printf(BRED);
-                printf("Was für ein jämmerlicher Versuch sollte das denn werden?");
+                printf("Was für ein jämmerlicher Versuch sollte das denn werden?\n");
                 printf(RESET);
-                printf("Du fällst zu Boden. Du merkst, wie das warme Blut deinen Hals entlang strömt.\nLangsam wird alles um dich herum dunkel.");
+                printf("Du fällst zu Boden. Du merkst, wie das warme Blut deinen Hals entlang strömt.\nLangsam wird alles um dich herum dunkel.\n");
                 printf(BRED);
 			    printf("\nGAME OVER\n\n");
 			    printf(RESET);
-                exit(0);   
+                return false; 
             }        
         }
         // Help
@@ -208,11 +208,11 @@ bool parseExecute3(char *input, char *conLevelInit)
         
         else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "4") == 0)
         {
-            printf("Auf einmal verspürst du einen stechenden Schmerz in deinem Kopf.\nDu fällst zu Boden und um dich herum wird schwarz.\nJochen, in deinem Kopf: ");
+            printf("Auf einmal verspürst du einen stechenden Schmerz in deinem Kopf.\nDu fällst zu Boden und um dich herum wird schwarz.\nJochen, in deinem Kopf: \n");
             printf(BRED);
-            printf("DU DACHTEST DOCH NICHT WIRKLICH, DASS DU MICH SO EINFACH LOS WIRST, ODER?\n");
+            printf("\nDU DACHTEST DOCH NICHT WIRKLICH, DASS DU MICH SO EINFACH LOS WIRST, ODER?\n");
             printf(RESET);
-            printf("Du merkst wie du die Kontrolle über deine Muskeln verlierst.\n Du rappelst dich auf und bewegst dich gegen deinen Willen auf das Haus zu.\n");
+            printf("\nDu merkst wie du die Kontrolle über deine Muskeln verlierst.\nDu rappelst dich auf und bewegst dich gegen deinen Willen auf das Haus zu.\n");
             printf("Du schreist, aber niemand hört dich.\nDu bist gefangen in deinem eigenen Körper.\n");
             printf(BRED);
             printf("Du wirst nie wieder entkommen.\nIch werde dich noch bis in die Unendlichkeit als mein Versuchskaninchen benutzen.\n");
@@ -230,7 +230,7 @@ bool parseExecute3(char *input, char *conLevelInit)
             printf(BRED);
 			printf("\nGAME OVER\n\n");
 			printf(RESET);
-            exit(0);
+            return false;
         }
         
         else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "5") == 0)
@@ -268,19 +268,19 @@ bool parseExecute3(char *input, char *conLevelInit)
             printf(BRED);
 			printf("\nGAME OVER\n\n");
 			printf(RESET);
-            exit(0);
+            return false;
         }
 
         else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "7") == 0)
         {
             printf(GRN);
-            printf("Bitte, das muss ein Ende haben./nDu hast doch schon genug gelitten.\n");
+            printf("Bitte, das muss ein Ende haben.\nDu hast doch schon genug gelitten.\n");
             printf(RESET);
             printf("Langsam neigt das Wesen seinen Kopf Richtung Boden.\nIst das etwa eine Träne die da aus den leeren Augen hervorquillt?\n");
             printf(BRED);
             printf("Du hast recht, ich kann das alles nicht mehr... du musst nun meine Last tragen.\n");
             printf(RESET);
-            printf("Voller Schrecken beobachtest du wie sich das Wesen in einen dichten, dunklen Nebel verwandelt und auf dich zufliegt.\nDu merkst wie dich eine Welle von Hass durchströmt während der Nebel in dich eindringt.");
+            printf("Voller Schrecken beobachtest du wie sich das Wesen in einen dichten, dunklen Nebel verwandelt und auf dich zufliegt.\nDu merkst wie dich eine Welle von Hass durchströmt während der Nebel in dich eindringt.\n");
             printf(BRED);
             printf("Du bist der Erste, der mich versteht. Ich werde nun für immer an deiner Seite bleiben.\n");
             printf(RESET);
@@ -288,7 +288,7 @@ bool parseExecute3(char *input, char *conLevelInit)
             printf(BRED);
 			printf("\nGAME OVER\n\n");
 			printf(RESET);
-            exit(0);
+            return false;
         }
         
         else if (strcmp(choice, "help") == 0)

@@ -8,6 +8,9 @@
 #include"kapitel2.h"
 #include"kapitel3.h"
 
+#define BCYN "\e[1;36m"
+#define reset "\e[0m"
+
 int main()
 {
 	puts(" _____                            __                         ___            _");    
@@ -22,4 +25,11 @@ int main()
 	main1();
 	main2();
 	main3();
+	printf(BCYN);
+	printf("\n\nVielen Dank fürs Spielen von: Escape from Jochen!\n");
+	printf("     Tobias Wiedemann\n");
+	printf("     Robert Limberger\n");
+	printf("     Pratyaksh Jain\n\n\n\n");
+	printf(reset);
+	return 0;
 }
