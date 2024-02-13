@@ -12,7 +12,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 
 # 2. Projektbeschreibung
 
-- **Aufgabenstellung**: 
+- **Aufgabenstellung**:
   Ein kurzes text-basiertes Videospiel entwickeln. (*Text Adventure Game/Interactive Fiction*)
 - **Funktionsumfang**:
   - Der Spieler kann verschiedene Dialogoptionen wählen
@@ -25,7 +25,7 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
 - **Angestrebte Lösung aus technischer Sicht**:
   - Benutzen von diversen C-Bibliotheken, wie `stdio.h`, `stdbool.h`, `string.h`
   - Die einzelnen Kapitel sollen in verschiedene C-Dateien ausgelagert werden
-    - So soll es eine Datei `kapitel0.c`, `kapitel1.c` etc. geben 
+    - So soll es eine Datei `kapitel0.c`, `kapitel1.c` etc. geben
   - Die einzelnen .c Dateien für die Kapitel sollen eine minimale `main`-Funktion haben und das Verarbeiten der Spieler-commands soll in den Funktionen "`getInput`" & "`parseExecute`" ausgelagert werden
   - Die beiden Funktionen, mit dem Rückgabewert boolean, werden solange in einer while-Schleife (welche sich in der `main`-Funktion befindet) ausgeführt, bis eine der beiden Funtionen false zurück gibt.
   - Es soll mit Konversationsebenen gearbeitet werden, sodass sich verschiedene Entscheidungen des Spielers auf den Fluss der Unterhaltung/den Verlauf des Spiel auswirken
@@ -136,5 +136,62 @@ if(itemCount < 10)
     federPickedUp = 1;
 }
 ```
+
+- Um das Testen der Anwendung ein wenig zu vereinfachen wurden Cheats implementiert:
+```C
+// Cheat, der Spieler alle Items dem Inventar hinzufügt
+else if (strcmp(choice, "cheats.allitems") == 0)
+{
+    strncpy(inventory[0].name, "Feder", sizeof(inventory[0].name) - 1); // Fügt die Feder hinzu
+    strncpy(inventory[1].name, "Schlüssel", sizeof(inventory[1].name) - 1); // Fügt den Schlüssel hinzu
+    strncpy(inventory[2].name, "Faden", sizeof(inventory[2].name) - 1); // Fügt den Faden hinzu
+    strncpy(inventory[3].name, "Brecheisen", sizeof(inventory[3].name) - 1); // Fügt das Brecheisen hinzu
+    strncpy(inventory[4].name, "Ast", sizeof(inventory[4].name) - 1); // Fügt den Ast hinzu
+    strncpy(inventory[5].name, "Holzstock", sizeof(inventory[5].name) - 1); // Fügt den Holzstock hinzu
+    strncpy(inventory[6].name, "Bogen", sizeof(inventory[6].name) - 1); // Fügt den Bogen hinzu
+    itemCount = 7;
+    printf("Du hast alle Items erhalten.");
+}
+```
+
+# Anwenderdokumentation
+
+- Das Spiel gibt dem Spieler von Zeit zu Zeit hilfreiche Tipps:
+```C
+printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
+```
+
+- Der Spieler kann jederzeit mit dem command `help` eine Hilfestellung erhalten, die auch dynamisch ist und sich von Kapitel zu Kapitel und Situation zu Situation verändern kann:
+```C
+// Der Spieler ist im Flur, auf dem Weg in Richtung Werkbank
+else if (strcmp(choice, "help") == 0)
+{
+    printf(BLU);
+    printf("\nDu kannst folgende Befehle eingeben:\n");
+    printf("1. `inventory` um dein Inventar zu sehen\n");
+    printf("2. `lookaround` um dich umzusehen\n");
+    printf("3. `inspect.Bild` um ein Bild zu inspizieren\n");
+    printf("4. `quit` um das Spiel zu beenden\n");
+    printf(RESET);
+}
+
+// Der Spieler steht vor der Werkbank
+else if (strcmp(choice, "help") == 0 && workBench == true)
+{
+    printf(BLU);
+    printf("\nDu kannst folgende Befehle eingeben:\n");
+    printf("1. `inventory` um dein Inventar zu sehen\n");
+    printf("2. `lookaround` um dich umzusehen\n");
+    printf("3. `inspect.Bild` um ein Bild zu inspizieren\n");
+    printf("4. `quit` um das Spiel zu beenden\n\n\n");
+    printf("5. `craft.Bogen` um einen Bogen zu craften\n\n\n");
+    printf("goto.Tür um die Türe zu öffnen und fortzufahren\n");
+    printf(RESET);
+}
+```
+
+
+
+
 
 
