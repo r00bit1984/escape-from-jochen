@@ -161,6 +161,22 @@ else if (strcmp(choice, "cheats.allitems") == 0)
 printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
 ```
 
+- Der Spieler interagiert entweder mit dem Spiel entweder:
+	- indem er mit einer Wahl konfrontiert wird:
+      ```bash
+      1. Versuche dich auf die mysteriöse Stimme zu konzentrieren
+	  2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit
+
+	  --> 1
+      ´´´
+	- oder indem er mit Kommandos direkt mit der Welt um sich herum interagiert:
+      ```bash
+      goto.Tür
+      lookaround
+      craft.Bogen
+      ```
+
+
 - Der Spieler kann jederzeit mit dem command `help` eine Hilfestellung erhalten, die auch dynamisch ist und sich von Kapitel zu Kapitel und Situation zu Situation verändern kann:
 ```C
 // Der Spieler ist im Flur, auf dem Weg in Richtung Werkbank
