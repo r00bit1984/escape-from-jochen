@@ -168,7 +168,7 @@ printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- looka
 	  2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit
 
 	  --> 1
-      ´´´
+      ```
 	- oder indem er mit Kommandos direkt mit der Welt um sich herum interagiert:
       ```bash
       goto.Tür
