@@ -31,7 +31,7 @@ int brecheisenPickedUp = 0;
 int astPickedUp = 0;
 int stockPickedUp = 0;
 int türOpen = 0;
-itemCount = 0;
+//itemCount = 0;
 int main1()
 {
     printf("\nDeine Muskel fühlen sich schwach an, aber du stehst nun.\nDu scheinst dich in einem alten Schlafzimmer zu befinden.\n");
