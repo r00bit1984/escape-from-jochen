@@ -33,7 +33,6 @@ Kontakt: inf23089@lehre.dhbw-stuttgart.de
   - Die `main.c` Datei soll möglichst minimal gehalten werden
   - Es sollen 3-4 Kapitel programmiert werden
   - Der Spieler kann Hilfe erhalten, wenn er `help` eingibt
-    - Spezifischere Hilfe mit: `help <command>`
   - Das Spiel soll auf Windows und Unix-Systemen ausführbar sein
 
 # 3. Entwicklerdokumentation
