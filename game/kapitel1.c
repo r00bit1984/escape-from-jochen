@@ -295,7 +295,7 @@ bool parseExecute1(char *input, char *progressionInit)
 
             }
         }
-        else if ((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "goto.Flur") == 0)  && strcmp(progression, "tür") == 0 && türOpen == 1)
+        else if (((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "goto.Flur") == 0)  && strcmp(progression, "tür") == 0 && türOpen == 1) || strcmp(choice, "cheats.continue") == 0)
         {
             printf("Du verlässt das Zimmer durch die Türe.");
             return 0;
@@ -452,6 +452,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf(BRED);
 			printf("\nGAME OVER\n\n");
 			printf(RESET);
+            exit(1);
         }
         
 
@@ -497,7 +498,8 @@ bool parseExecute1(char *input, char *progressionInit)
             strncpy(inventory[3].name, "Brecheisen", sizeof(inventory[3].name) - 1);
             strncpy(inventory[4].name, "Ast", sizeof(inventory[4].name) - 1);
             strncpy(inventory[5].name, "Holzstock", sizeof(inventory[5].name) - 1);
-            itemCount = 6;
+            strncpy(inventory[6].name, "Bogen", sizeof(inventory[6].name) - 1);
+            itemCount = 7;
             printf("Du hast alle Items erhalten.");
         }
   

@@ -6,6 +6,7 @@
 #include"kapitel0.h"
 #include"kapitel1.h"
 #include"kapitel2.h"
+#include"kapitel3.h"
 
 int main()
 {
@@ -20,4 +21,5 @@ int main()
 	main0();
 	main1();
 	main2();
+	main3();
 }

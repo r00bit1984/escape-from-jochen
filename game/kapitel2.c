@@ -29,6 +29,7 @@ int main2()
     printf(RESET); 
     printf(" von Personen, die du nicht erkennst.\nUnter jedem Bild wurde ein Namensschild ");
     printf("angebracht.");
+    /*
     while(1)
     {
        if(getInput2())
@@ -36,6 +37,9 @@ int main2()
         else
             return 0;
     } 
+    return 0;
+    */
+    while (getInput2() && parseExecute2(input, progressionInit));
     return 0;
 }
 
@@ -266,9 +270,10 @@ bool parseExecute2(char *input, char *progressionInit)
             
 
         }
-        else if(strcmp(choice, "use.Tür") == 0) //&& workBench == true
+        else if((strcmp(choice, "use.Tür") == 0 && workBench == true) || strcmp(choice, "cheats.continue"))
         {
             printf("Du öffnest langsam die Türe und gehst durch sie durch.");
+            return 0;
         }
         
         else

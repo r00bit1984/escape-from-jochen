@@ -101,7 +101,7 @@ bool parseExecute0(char *input, char *conLevelInit)
 			printf("In diesem Kapitel kannst du noch keine Aktionen ausführen.\nTippe die Zahlen, die den dir präsentierten Optionen entsprechen und dann Enter.\n");
 			printf(RESET);
 		}
-		else if (strcmp(choice, "1") == 0 && strcmp(conLevel, "3") == 0)
+		else if ((strcmp(choice, "1") == 0 && strcmp(conLevel, "3") == 0) || strcmp(choice, "cheats.continue"))
 		{
 			return 0;
 		}
