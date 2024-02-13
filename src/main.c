@@ -29,7 +29,8 @@ int main()
 	printf("\n\nVielen Dank fürs Spielen von: Escape from Jochen!\n");
 	printf("     Tobias Wiedemann\n");
 	printf("     Robert Limberger\n");
-	printf("     Pratyaksh Jain\n\n\n\n");
+	printf("     Pratyaksh Jain\n\n");
+	printf("     FREE PALESTINE!\n\n\n");
 	printf(reset);
 	return 0;
 }

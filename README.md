@@ -157,13 +157,21 @@ else if (strcmp(choice, "cheats.allitems") == 0)
 # Anwenderdokumentation
 
 - Das Spiel gibt dem Spieler von Zeit zu Zeit hilfreiche Tipps:
-```C
-printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- lookaround\n- inspect\n- pickup\n- goto\n- open\n- use\n- inventory\n\nExemplarische Benutzung von commands: `goto.Bett`, `inspect.Schreibtisch`");
+```
+TUTORIAL:
+Dir stehen nun verschiedene Aktionen zur Verfügung:
+- lookaround
+- inspect
+- pickup
+- goto
+- open
+- use
+- inventory
 ```
 
 - Der Spieler interagiert entweder mit dem Spiel entweder:
 	- indem er mit einer Wahl konfrontiert wird:
-      ```bash
+      ```
       1. Versuche dich auf die mysteriöse Stimme zu konzentrieren
 	  2. Gehe zurück in den endlosen und friedlichen Zustand der Unwissenheit
 
@@ -176,35 +184,27 @@ printf("TUTORIAL:\nDir stehen nun verschiedene Aktionen zur Verfügung:\n- looka
       craft.Bogen
       ```
 
-
 - Der Spieler kann jederzeit mit dem command `help` eine Hilfestellung erhalten, die auch dynamisch ist und sich von Kapitel zu Kapitel und Situation zu Situation verändern kann:
-```C
+```
 // Der Spieler ist im Flur, auf dem Weg in Richtung Werkbank
-else if (strcmp(choice, "help") == 0)
-{
-    printf(BLU);
-    printf("\nDu kannst folgende Befehle eingeben:\n");
-    printf("1. `inventory` um dein Inventar zu sehen\n");
-    printf("2. `lookaround` um dich umzusehen\n");
-    printf("3. `inspect.Bild` um ein Bild zu inspizieren\n");
-    printf("4. `quit` um das Spiel zu beenden\n");
-    printf(RESET);
-}
+Du kannst folgende Befehle eingeben:
+1. `inventory` um dein Inventar zu sehen
+2. `lookaround` um dich umzusehen
+3. `inspect.Bild` um ein Bild zu inspizieren
+4. `quit` um das Spiel zu beenden
 
 // Der Spieler steht vor der Werkbank
-else if (strcmp(choice, "help") == 0 && workBench == true)
-{
-    printf(BLU);
-    printf("\nDu kannst folgende Befehle eingeben:\n");
-    printf("1. `inventory` um dein Inventar zu sehen\n");
-    printf("2. `lookaround` um dich umzusehen\n");
-    printf("3. `inspect.Bild` um ein Bild zu inspizieren\n");
-    printf("4. `quit` um das Spiel zu beenden\n\n\n");
-    printf("5. `craft.Bogen` um einen Bogen zu craften\n\n\n");
-    printf("goto.Tür um die Türe zu öffnen und fortzufahren\n");
-    printf(RESET);
-}
+Du kannst folgende Befehle eingeben:
+1. `inventory` um dein Inventar zu sehen
+2. `lookaround` um dich umzusehen
+3. `inspect.Bild` um ein Bild zu inspizieren
+4. `quit` um das Spiel zu beenden
+5. `craft.Bogen` um einen Bogen zu craften
+goto.Tür um die Türe zu öffnen und fortzufahren
 ```
+
+- Die Entscheidungen und Spielweise des Spielers haben einen Einfluss auf das Ende des Spiels
+	- So können mehr als Drei verschiedene Enden erreicht werden
 
 
 
