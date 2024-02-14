@@ -31,6 +31,7 @@ int brecheisenPickedUp = 0;
 int astPickedUp = 0;
 int stockPickedUp = 0;
 int türOpen = 0;
+int readBrief = 0;
 //itemCount = 0;
 int main1()
 {
@@ -270,7 +271,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Das Schloss scheint noch in Takt zu sein.\nVielleicht findest du ja irgendwo einen Schlüssel?");
         }
        
-        else if ((strcmp(choice, "open.Schloss") == 0 || strcmp(choice, "open.Tür") == 0) && strcmp(progression, "tür") == 0)
+        else if ((strcmp(choice, "open.Schloss") == 0 || strcmp(choice, "open.Tür") == 0 || strcmp(choice, "use.Schlüssel") == 0) && strcmp(progression, "tür") == 0)
         {
             for (int i = 0; i < itemCount; i++)
             {
@@ -377,9 +378,13 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Die Feder befindet sich schon in deinem Besitz.");
         }
-        else if (strcmp(choice, "pickup.Brief") == 0 && strcmp(progression, "schubladeoffen") == 0)
+        else if (strcmp(choice, "pickup.Brief") == 0 && strcmp(progression, "schubladeoffen") == 0 && readBrief == 1)
         {
             printf("Der Brief hat dich irgendwie verängstigt.\nDu lässt ihn lieber in der Schublade.");
+        }
+        else if (strcmp(choice, "pickup.Brief") == 0 && strcmp(progression, "schubladeoffen") == 0 && readBrief == 0)
+        {
+            printf("Du solltest den Brief vielleicht erstmal lesen bevor du ihn mitnimmst.");
         }
         else if (strcmp(choice, "inspect.Brecheisen") == 0 && strcmp(progression, "schubladeoffen") == 0)
         {
@@ -389,8 +394,9 @@ bool parseExecute1(char *input, char *progressionInit)
         {
             printf("Der Brief scheint von jemandem geschrieben worden sein, der sich in einer ähnlichen Situation befunden hat wie du.\nEs steht geschrieben: ");    
             printf(GRN);
-            printf("Ich will das alles nicht tun. Ich will nicht mehr hier sein.\nBitte verzeiht mir. Ich hoffe ihr könnt mir verzeihen.\n");
+            printf("\n\nIch will das alles nicht tun. Ich will nicht mehr hier sein.\nBitte verzeiht mir. Ich hoffe ihr könnt mir verzeihen.\n");
             printf(RESET);
+            readBrief = 1;
         }
         else if (strcmp(choice, "inspect.Faden") == 0 && strcmp(progression, "schubladeoffen") == 0)
         {
@@ -413,7 +419,7 @@ bool parseExecute1(char *input, char *progressionInit)
             printf("Du bist zu weit vom Fenster entfernt.\nVersuche doch mal den command `goto.Kleiderschrank`.");
         }
 
-        else if (strcmp(choice, "open.Fenster") == 0 && strcmp(progression, "fenster") == 0)
+        else if ((strcmp(choice, "open.Fenster") == 0 || strcmp(choice, "use.Brecheisen") == 0) && strcmp(progression, "fenster") == 0)
         {
             
             for (int i = 0; i < itemCount; i++)

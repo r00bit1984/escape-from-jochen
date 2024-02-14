@@ -265,7 +265,7 @@ bool parseExecute2(char *input, char *progressionInit)
             printf("goto.Tür um die Türe zu öffnen und fortzufahren\n");
             printf(RESET);
         }
-        else if ((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "open.Tür") == 0 || strcmp(choice, "goto.Tür") == 0) && workBench == true)
+        else if (((strcmp(choice, "use.Tür") == 0 || strcmp(choice, "open.Tür") == 0 || strcmp(choice, "goto.Tür") == 0) && workBench == true) || strcmp(choice, "cheats.continue") == 0)
         {
             printf("Du öffnest langsam die Türe und gehst durch sie durch.");
             return 0;
